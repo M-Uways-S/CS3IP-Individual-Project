@@ -7,15 +7,23 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="cookie-popup" class="cookie-popup">
-        <p>This website uses cookies to enhance your experience. Do you accept?</p>
+    <div id="overlay" class="overlay"></div> <!-- This is the dark overlay till user accepts cookies -->
+
+    <div id="cookie-popup" class="cookie-popup"> <!-- This is the pop-up which asks users to accept or decline cookies -->
+        <p id="cookie-message">This website uses cookies to enhance your experience. Do you accept?</p> <!-- cookies pop-up text -->
         <button id="accept-btn">Accept</button>
         <button id="decline-btn">Decline</button>
     </div>
 
+
+    <button id="reset-cookies" class="reset-btn">Reset Cookies</button> <!-- Developer Only maybe need to remove unless make admin side: Reset Cookies Button -->
+
     <header>
         <nav>
-            <div class="logo">MyWebsite</div>
+            <div class="logo">
+                <img src="images/Cookies-logo.png" alt="Cookies Logo" class="logo-img"> <!-- Image added here -->
+                Cookies
+            </div>
             <ul class="nav-links">
                 <li><a href="#">Home</a></li>
                 <li><a href="#">About</a></li>
@@ -24,12 +32,12 @@
             </ul>
         </nav>
     </header>
-
-    <section class="hero">
+    
+    <section class="welcome-banner">
         <h1>Welcome to My Website</h1>
         <p>Your short description goes here.</p>
         <a href="#" class="btn">Get Started</a>
-    </section>
+    </section>    
 
     <footer>
         <p>&copy; 2025 MyWebsite. All rights reserved.</p>
