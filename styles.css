@@ -25,10 +25,47 @@ nav {
     margin: auto;
 }
 
+/* Logo Image Resizing */
+img.logo-img {
+    width: 75px; /* Make the image bigger */
+    height: auto;
+    vertical-align: middle;
+    margin-right: -20px; /* Initial position */
+    position: relative;
+    animation: imageChase 3s ease-in-out infinite; /* Animation applied */
+}
+
+/* Keyframes for the chasing animation */
+@keyframes imageChase {
+    0% {
+        margin-right: -20px; /* Start behind the text */
+        transform: scale(1); /* Normal size */
+    }
+    25% {
+        margin-right: -10px; /* Move closer to the text */
+        transform: scale(1.1); /* Slightly enlarge image */
+    }
+    50% {
+        margin-right: 0px; /* Image is now near the text */
+        transform: scale(1.2); /* Enlarge more */
+    }
+    75% {
+        margin-right: -10px; /* Move further ahead */
+        transform: scale(1.1); /* Slightly shrink image */
+    }
+    100% {
+        margin-right: -20px; /* Back to starting position */
+        transform: scale(1); /* Return to normal size */
+    }
+}
+
+/* Logo Text Styles */
 .logo {
-    color: white;
-    font-size: 24px;
     font-weight: bold;
+    font-size: 24px;
+    color: white;
+    display: flex;
+    align-items: center;
 }
 
 .nav-links {
@@ -168,3 +205,10 @@ footer {
 body.dev-mode .reset-btn {
     display: block;
 }
+
+/* Style for the red text */
+.red-text {
+    color: red; /* Change the text color to red */
+}
+
+
