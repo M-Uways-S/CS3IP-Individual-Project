@@ -15,6 +15,7 @@ body.no-scroll {
 header {
     background: #333;
     padding: 15px 0;
+    position: relative; /* Added to position logo correctly inside the navbar */
 }
 
 nav {
@@ -26,11 +27,23 @@ nav {
 }
 
 /* Logo Image Resizing */
+.logo {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 24px;
+    color: white;
+    position: absolute; /* Fix logo to the top-left corner */
+    left: 20px; /* Adjust from the left */
+    top: 50%;
+    transform: translateY(-50%); /* Vertically center it */
+}
+
 img.logo-img {
     width: 75px; /* Make the image bigger */
     height: auto;
     vertical-align: middle;
-    margin-right: -20px; /* Initial position */
+    margin-right: 10px; /* Adjust to bring text and logo closer */
     position: relative;
     animation: imageChase 3s ease-in-out infinite; /* Animation applied */
 }
@@ -38,11 +51,11 @@ img.logo-img {
 /* Keyframes for the chasing animation */
 @keyframes imageChase {
     0% {
-        margin-right: -20px; /* Start behind the text */
+        margin-right: 10px; /* Start near the text */
         transform: scale(1); /* Normal size */
     }
     25% {
-        margin-right: -10px; /* Move closer to the text */
+        margin-right: 5px; /* Move closer to the text */
         transform: scale(1.1); /* Slightly enlarge image */
     }
     50% {
@@ -50,27 +63,20 @@ img.logo-img {
         transform: scale(1.2); /* Enlarge more */
     }
     75% {
-        margin-right: -10px; /* Move further ahead */
+        margin-right: 5px; /* Move further ahead */
         transform: scale(1.1); /* Slightly shrink image */
     }
     100% {
-        margin-right: -20px; /* Back to starting position */
+        margin-right: 10px; /* Back to starting position */
         transform: scale(1); /* Return to normal size */
     }
 }
 
-/* Logo Text Styles */
-.logo {
-    font-weight: bold;
-    font-size: 24px;
-    color: white;
-    display: flex;
-    align-items: center;
-}
-
+/* Navbar Link Styles */
 .nav-links {
     list-style: none;
     display: flex;
+    margin-left: auto; /* Align the nav links to the right */
 }
 
 .nav-links li {
@@ -87,7 +93,7 @@ img.logo-img {
     color: #f4a261;
 }
 
-/* Welcome Banner Section (formerly Hero) */
+/* Welcome Banner Section */
 .welcome-banner {
     text-align: center;
     padding: 100px 20px;
@@ -104,7 +110,8 @@ img.logo-img {
     margin-bottom: 20px;
 }
 
-.welcome-banner .btn {
+/* Get Started Button */
+.get-started {
     display: inline-block;
     padding: 10px 20px;
     background: #333;
@@ -112,9 +119,10 @@ img.logo-img {
     text-decoration: none;
     font-size: 18px;
     border-radius: 5px;
+    margin-top: 20px;
 }
 
-.welcome-banner .btn:hover {
+.get-started:hover {
     background: #f4a261;
 }
 
@@ -210,5 +218,3 @@ body.dev-mode .reset-btn {
 .red-text {
     color: red; /* Change the text color to red */
 }
-
-
