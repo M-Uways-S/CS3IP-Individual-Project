@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,12 +27,20 @@
                 <span class="red-text">ookies... Are they really safe?</span>
             </div>
             <ul class="nav-links">
-                <li><a href="home.html">Home</a></li>
+                <li><a href="home.php">Home</a></li>
                 <li><a href="#">About</a></li>
                 <li><a href="#">Services</a></li>
                 <li><a href="#">Contact</a></li>
-                <li><a href="login.html">Login</a></li> <!-- Login link -->
-                <li><a href="signup.html">Sign Up</a></li> <!-- Sign Up link -->
+
+                <?php if (isset($_SESSION['username']) && !empty($_SESSION['username'])): ?>
+                    <!-- Show the username and logout link if logged in -->
+                    <li><span class="username">Hi, <?php echo htmlspecialchars($_SESSION['username']); ?></span></li>
+                    <li><a href="logout.php">Logout</a></li> <!-- Logout link -->
+                <?php else: ?>
+                    <!-- Show login and signup links if not logged in -->
+                    <li><a href="login.php">Login</a></li>
+                    <li><a href="signup.html">Sign Up</a></li>
+                <?php endif; ?>
             </ul>
         </nav>
     </header>

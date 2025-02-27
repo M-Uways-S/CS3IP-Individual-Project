@@ -12,28 +12,30 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Handle login
+$success = "";
+$error = "";
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $user_username = $_POST['username'];
     $user_password = $_POST['password'];
 
-    $stmt = $conn->prepare("SELECT password, score FROM users WHERE username = ?");
-    $stmt->bind_param("s", $user_username);
-    $stmt->execute();
-    $stmt->bind_result($db_password, $score);
-    $stmt->fetch();
+    // Hash the password
+    $hashed_password = password_hash($user_password, PASSWORD_DEFAULT);
+
+    // Insert into the database
+    $sql = "INSERT INTO users (username, password, score) VALUES (?, ?, 0)";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("ss", $user_username, $hashed_password);
     
-    if (password_verify($user_password, $db_password)) {
-        $_SESSION['username'] = $user_username;
-        $_SESSION['score'] = $score;
-        header("Location: home.php"); // Redirect to homepage
-        exit();
+    if ($stmt->execute()) {
+        $success = "Registration successful! <a href='login.php'>Login here</a>";
     } else {
-        $error = "Invalid login.";
+        $error = "Error: " . $stmt->error;
     }
 
     $stmt->close();
 }
+
 $conn->close();
 ?>
 
@@ -42,11 +44,11 @@ $conn->close();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
+    <title>Sign Up</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    
+
     <header>
         <nav>
             <div class="logo">
@@ -70,11 +72,14 @@ $conn->close();
         </nav>
     </header>
 
-    <div class="login-page">
-        <div class="login-box">
-            <h2>Login</h2>
+    <div class="signup-page">
+        <div class="signup-box">
+            <h2>Sign Up</h2>
+            
+            <?php if (!empty($success)) echo "<p class='success'>$success</p>"; ?>
             <?php if (!empty($error)) echo "<p class='error'>$error</p>"; ?>
-            <form action="login.php" method="POST" class="login-form">
+
+            <form action="signup.php" method="POST" class="signup-form">
                 <div class="form-group">
                     <label for="username">Username:</label>
                     <input type="text" name="username" id="username" required>
@@ -85,9 +90,10 @@ $conn->close();
                     <input type="password" name="password" id="password" required>
                 </div>
 
-                <button type="submit" class="btn">Login</button>
+                <button type="submit" class="btn">Sign Up</button>
             </form>
         </div>
     </div>
+
 </body>
 </html>

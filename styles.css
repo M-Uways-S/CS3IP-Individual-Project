@@ -218,3 +218,93 @@ body.dev-mode .reset-btn {
 .red-text {
     color: red; /* Change the text color to red */
 }
+/* Center the login box */
+.login-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full screen height */
+    background-color: #f4f4f4;
+}
+
+/* Bigger and more central login box */
+.login-box {
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    width: 400px; /* Increase width */
+    text-align: center;
+}
+
+/* Make input fields bigger */
+.login-box input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Make button bigger */
+.login-box .btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 18px;
+    background: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.login-box .btn:hover {
+    background: #f4a261;
+}
+
+
+/* Center the signup box */
+.signup-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+}
+
+/* Signup box similar to login */
+.signup-box {
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    width: 400px;
+    text-align: center;
+}
+
+/* Make input fields bigger */
+.signup-box input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Make button bigger */
+.signup-box .btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 18px;
+    background: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.signup-box .btn:hover {
+    background: #f4a261;
+}
