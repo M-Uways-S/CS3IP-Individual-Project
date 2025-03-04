@@ -1,26 +1,42 @@
 <?php
-$conn = new mysqli("localhost", "root", "", "fyp");
+session_start(); // Start the session
 
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+// Check if the user is logged in (simplified check using session)
+if (!isset($_SESSION['user_id'])) {
+    echo json_encode(['error' => 'User is not logged in']);
+    exit;
 }
 
-$data = json_decode(file_get_contents("php://input"), true);
-$score = 0;
+// Get the quiz answers from the frontend
+$data = json_decode(file_get_contents('php://input'), true);
 
-foreach ($data as $questionId => $userAnswer) {
-    $sql = "SELECT correct_option FROM quiz_questions WHERE id = $questionId";
-    $result = $conn->query($sql);
-    $row = $result->fetch_assoc();
-    
-    if ($row["correct_option"] === $userAnswer) {
+// Check if we received data
+if (!$data) {
+    echo json_encode(['error' => 'No data received']);
+    exit;
+}
+
+// Assume we have a function to check answers and calculate score
+$score = 0;
+foreach ($data as $questionId => $answer) {
+    // Here, you should validate the answers with your database or predefined answers
+    if (validateAnswer($questionId, $answer)) {
         $score++;
     }
 }
 
-$username = "test_user"; // Replace with logged-in user
-$sql = "INSERT INTO quiz_scores (username, score) VALUES ('$username', $score)";
-$conn->query($sql);
+// You can save the score in the database if needed
+// For now, we'll just return the score
+echo json_encode(['score' => $score]);
 
-echo json_encode(["score" => $score]);
+// Simple function to validate the answers (for now, just a dummy function)
+function validateAnswer($questionId, $answer) {
+    // Validate against stored answers, this is just a placeholder
+    $correctAnswers = [
+        1 => 'C', // Example correct answers
+        2 => 'B'
+    ];
+    
+    return isset($correctAnswers[$questionId]) && $correctAnswers[$questionId] === $answer;
+}
 ?>

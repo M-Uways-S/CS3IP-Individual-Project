@@ -17,21 +17,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $user_username = $_POST['username'];
     $user_password = $_POST['password'];
 
+    // Prepare and execute query to fetch password from DB
     $stmt = $conn->prepare("SELECT password, score FROM users WHERE username = ?");
     $stmt->bind_param("s", $user_username);
     $stmt->execute();
     $stmt->bind_result($db_password, $score);
     $stmt->fetch();
     
+    // Verify password
     if (password_verify($user_password, $db_password)) {
+        // Set session variables
         $_SESSION['username'] = $user_username;
         $_SESSION['score'] = $score;
 
         // Clear local storage for cookies preference upon login
         echo "<script>
                 localStorage.removeItem('cookiesAccepted');
-                window.location.href = 'home.php'; 
-                </script>";
+                window.location.href = 'home.php';
+              </script>";
         exit();
     } else {
         $error = "Invalid login.";
@@ -55,7 +58,7 @@ $conn->close();
         <nav>
             <div class="logo">
                 <img src="images/cookies-logo.png" alt="Cookies Logo" class="logo-img"> 
-                <span class="red-text">ookies... Are they really safe?</span>
+                <span class="red-text">Cookies... Are they really safe?</span>
             </div>
             <ul class="nav-links">
                 <li><a href="home.php">Home</a></li>
