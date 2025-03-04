@@ -61,3 +61,21 @@ document.addEventListener("DOMContentLoaded", function () {
     // Show Reset Button only for development mode
     document.body.classList.add("dev-mode");
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const text = "Did You Know Your Online Privacy Starts With a Simple Click?";
+    const typewriterElement = document.getElementById("typewriter-text");
+    let index = 0;
+
+    function typeWriter() {
+        if (index < text.length) {
+            typewriterElement.textContent += text.charAt(index);
+            index++;
+            setTimeout(typeWriter, 50); // Adjust speed here (lower = faster)
+        } else {
+            typewriterElement.style.borderRight = "none"; // Remove cursor after typing
+        }
+    }
+
+    typeWriter();
+});

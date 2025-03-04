@@ -26,7 +26,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (password_verify($user_password, $db_password)) {
         $_SESSION['username'] = $user_username;
         $_SESSION['score'] = $score;
-        header("Location: home.php"); // Redirect to homepage
+
+        // Clear local storage for cookies preference upon login
+        echo "<script>
+                localStorage.removeItem('cookiesAccepted');
+                window.location.href = 'home.php'; 
+                </script>";
         exit();
     } else {
         $error = "Invalid login.";
@@ -46,7 +51,6 @@ $conn->close();
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    
     <header>
         <nav>
             <div class="logo">

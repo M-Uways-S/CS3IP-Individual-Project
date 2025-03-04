@@ -308,3 +308,103 @@ body.dev-mode .reset-btn {
 .signup-box .btn:hover {
     background: #f4a261;
 }
+.welcome-banner {
+    background: linear-gradient(135deg, #000000, #ffb300);
+    color: white;
+    padding: 60px 20px;
+    text-align: center;
+    position: relative;
+    overflow: visible;
+}
+
+.welcome-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.welcome-headline {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    min-width: 100%;
+}
+
+#typewriter-text {
+    display: inline-block;
+    border-right: 3px solid white;
+    white-space: nowrap;
+    overflow: visible;
+    animation: blinkCursor 0.75s step-end infinite;
+    text-align: left;
+}
+
+.welcome-description {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    animation: fadeInUp 2s ease-out;
+}
+
+.arrow-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.arrow {
+    font-size: 2rem;
+    color: #ff6f61;
+    animation: bounceArrow 1s infinite;
+}
+
+.btn.get-started {
+    background: #ff6f61;
+    color: white;
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    border-radius: 25px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+    animation: flashButton 1.5s infinite;
+}
+
+.btn.get-started:hover {
+    background: #000000;
+}
+
+@keyframes blinkCursor {
+    from, to { border-color: transparent; }
+    50% { border-color: white; }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes flashButton {
+    0%, 100% {
+        background: #000000;
+    }
+    50% {
+        background: #ff7b00;
+    }
+}
+
+@keyframes bounceArrow {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(10px);
+    }
+}

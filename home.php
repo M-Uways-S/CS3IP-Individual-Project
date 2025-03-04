@@ -46,10 +46,20 @@ session_start();
     </header>
 
     <section class="welcome-banner">
-        <h1>Welcome to My Website</h1>
-        <p>Your short description goes here.</p>
-        <a href="#" class="btn get-started">Get Started</a> <!-- Styled Get Started button -->
-    </section>    
+    <div class="welcome-content">
+        <h1 class="welcome-headline">
+            <span id="typewriter-text"></span>
+        </h1>
+        <p class="welcome-description">Cookies are everywhere, but do you really know what they do? This website uses cookies to enhance your experience, but we also want to educate you about their risks. Before you continue, please let us know if you accept cookies below.</p>
+        <div class="arrow-container">
+            <span class="arrow right-arrow">→</span>
+            <a href="#cookie-popup" class="btn get-started">Learn About Cookies</a>
+            <span class="arrow left-arrow">←</span>
+        </div>
+    </div>
+</section>
+
+
 
     <footer>
         <p>&copy; 2025 MyWebsite. All rights reserved.</p>
