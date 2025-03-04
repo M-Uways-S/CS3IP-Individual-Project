@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <style>
+        .quiz-container { max-width: 600px; margin: auto; }
+        .question { font-size: 20px; margin-bottom: 10px; }
+        .options button { display: block; margin: 5px 0; padding: 10px; width: 100%; }
+        #submit-btn { margin-top: 10px; }
+    </style>
+</head>
+<body>
+
+<div class="quiz-container">
+    <h1>Quiz</h1>
+    <div id="quiz"></div>
+    <button id="submit-btn">Submit Quiz</button>
+</div>
+
+<script>
+let questions = [];
+let userAnswers = {};
+
+fetch("get_questions.php")
+    .then(response => response.json())
+    .then(data => {
+        questions = data;
+        displayQuestions();
+    });
+
+function displayQuestions() {
+    const quizDiv = document.getElementById("quiz");
+    quizDiv.innerHTML = "";
+    
+    questions.forEach((q, index) => {
+        const questionHTML = `
+            <div class="question">${q.question}</div>
+            <div class="options">
+                <button onclick="selectAnswer(${q.id}, 'A')">${q.option_a}</button>
+                <button onclick="selectAnswer(${q.id}, 'B')">${q.option_b}</button>
+                <button onclick="selectAnswer(${q.id}, 'C')">${q.option_c}</button>
+                <button onclick="selectAnswer(${q.id}, 'D')">${q.option_d}</button>
+            </div>
+        `;
+        quizDiv.innerHTML += questionHTML;
+    });
+}
+
+function selectAnswer(questionId, answer) {
+    userAnswers[questionId] = answer;
+}
+
+document.getElementById("submit-btn").addEventListener("click", () => {
+    fetch("submit_quiz.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(userAnswers)
+    })
+    .then(response => response.json())
+    .then(data => alert("Your score: " + data.score));
+});
+</script>
+
+</body>
+</html>
