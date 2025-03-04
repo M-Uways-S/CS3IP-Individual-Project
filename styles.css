@@ -218,6 +218,7 @@ body.dev-mode .reset-btn {
 .red-text {
     color: red; /* Change the text color to red */
 }
+
 /* Center the login box */
 .login-page {
     display: flex;
@@ -263,7 +264,6 @@ body.dev-mode .reset-btn {
     background: #f4a261;
 }
 
-
 /* Center the signup box */
 .signup-page {
     display: flex;
@@ -308,6 +308,7 @@ body.dev-mode .reset-btn {
 .signup-box .btn:hover {
     background: #f4a261;
 }
+
 .welcome-banner {
     background: linear-gradient(135deg, #000000, #ffb300);
     color: white;
@@ -406,5 +407,45 @@ body.dev-mode .reset-btn {
     }
     50% {
         transform: translateX(10px);
+    }
+}
+
+/* Gradient style */
+.cookie-info-content {
+    background: linear-gradient(to right, #000000, #ff8c00); /* Similar gradient to previous one */
+    padding: 40px;
+    border-radius: 8px;
+    color: white;
+}
+
+/* Hide the section initially */
+.cookie-info.hidden {
+    display: none;
+}
+
+.typewriter-text {
+    display: inline-block;
+    overflow: hidden;
+    border-right: 4px solid #fff; /* Simulate cursor */
+    width: 0; /* Start with no text showing */
+    animation: typing 4s steps(50) 1s forwards, blink 0.75s step-end infinite;
+    white-space: normal; /* Allow text to wrap */
+    word-wrap: break-word; /* Ensure long words break to the next line */
+}
+
+/* Animation for typing */
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+/* Animation for cursor blinking */
+@keyframes blink {
+    50% {
+        border-color: transparent;
     }
 }

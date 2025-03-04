@@ -73,9 +73,51 @@ document.addEventListener("DOMContentLoaded", function () {
             index++;
             setTimeout(typeWriter, 50); // Adjust speed here (lower = faster)
         } else {
-            typewriterElement.style.borderRight = "none"; // Remove cursor after typing
+            typewriterElement.style.borderRigAht = "none"; // Remove cursor after typing
         }
     }
 
     typeWriter();
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const learnMoreBtn = document.getElementById("learn-more-btn");
+    const cookieInfoSection = document.getElementById("cookie-info");
+    const headingText = "Did You Know You Accepted Cookies?";
+    const paragraphText = "By clicking 'Accept,' you’ve allowed this website to store your data.";
+
+    if (learnMoreBtn && cookieInfoSection) {
+        learnMoreBtn.addEventListener("click", function (event) {
+            event.preventDefault(); // Prevent default link behavior
+            cookieInfoSection.classList.toggle("hidden"); // Toggle visibility
+
+            // Apply typewriter effect to the heading and paragraph
+            const typewriterHeading = document.getElementById("typewriter-heading");
+            const typewriterPara = document.getElementById("typewriter-text");
+
+            // Clear existing text
+            typewriterHeading.textContent = "";
+            typewriterPara.textContent = "";
+
+            // Function to type out text
+            function typeWriter(element, text, speed, callback) {
+                let index = 0;
+                function type() {
+                    if (index < text.length) {
+                        element.textContent += text.charAt(index);
+                        index++;
+                        setTimeout(type, speed);
+                    } else if (callback) {
+                        callback();
+                    }
+                }
+                type();
+            }
+
+            // Type the heading first, then the paragraph
+            typeWriter(typewriterHeading, headingText, 50, function () {
+                typeWriter(typewriterPara, paragraphText, 50);
+            });
+        });
+    }
 });

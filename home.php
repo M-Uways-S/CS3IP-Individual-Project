@@ -53,13 +53,31 @@ session_start();
         <p class="welcome-description">Cookies are everywhere, but do you really know what they do? This website uses cookies to enhance your experience, but we also want to educate you about their risks. Before you continue, please let us know if you accept cookies below.</p>
         <div class="arrow-container">
             <span class="arrow right-arrow">→</span>
-            <a href="#cookie-popup" class="btn get-started">Learn About Cookies</a>
+            <a href="#" id="learn-more-btn" class="btn get-started">Learn About Cookies</a>
             <span class="arrow left-arrow">←</span>
         </div>
     </div>
 </section>
 
+<section id="cookie-info" class="cookie-info hidden">
+    <div class="cookie-info-content">
+        <h2 id="typewriter-heading" class="typewriter-text"></h2> <!-- Typewriter text -->
+        <p id="typewriter-text" class="typewriter-text"></p> <!-- Typewriter paragraph text -->
+        
+        <h2>Potential Dangers of Accepting Cookies</h2>
+        <ul>
+            <li><strong>Privacy Risks:</strong> Cookies can track your browsing habits, potentially exposing your personal information.</li>
+            <li><strong>Third-Party Tracking:</strong> Some cookies are used by advertisers to build profiles of your interests and behaviors.</li>
+            <li><strong>Data Security:</strong> If not properly managed, cookies may become vulnerable to security breaches or misuse.</li>
+        </ul>
+        
+        <h2>How to Protect Yourself</h2>
+        <p>You can manage or disable cookies through your browser settings. By doing so, you may limit tracking and enhance your privacy, but it could affect your browsing experience on some websites.</p>
+    </div>
+</section>
 
+
+</section>
 
     <footer>
         <p>&copy; 2025 MyWebsite. All rights reserved.</p>
