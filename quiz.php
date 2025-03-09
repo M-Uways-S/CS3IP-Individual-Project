@@ -79,6 +79,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz</title>
+    <link rel="stylesheet" href="styles.css">
     <style>
         .quiz-container { max-width: 600px; margin: auto; }
         .question { font-size: 20px; margin-bottom: 10px; }
@@ -87,24 +88,50 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </head>
 <body>
 
-<div class="quiz-container">
-    <h1>Quiz</h1>
-    <form action="quiz.php" method="POST">
-        <?php foreach ($questions as $index => $question): ?>
-            <div class="question">
-                <p><strong><?php echo ($index + 1) . ". " . $question['question']; ?></strong></p>
-                <div class="options">
-                    <label><input type="radio" name="answers[<?php echo $question['id']; ?>]" value="A"> <?php echo $question['option_a']; ?></label>
-                    <label><input type="radio" name="answers[<?php echo $question['id']; ?>]" value="B"> <?php echo $question['option_b']; ?></label>
-                    <label><input type="radio" name="answers[<?php echo $question['id']; ?>]" value="C"> <?php echo $question['option_c']; ?></label>
-                    <label><input type="radio" name="answers[<?php echo $question['id']; ?>]" value="D"> <?php echo $question['option_d']; ?></label>
-                </div>
+    <!-- Navbar copied from home.php -->
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="images/cookies-logo.png" alt="Cookies Logo" class="logo-img"> 
+                <span class="red-text">ookies... Are they really safe?</span>
             </div>
-        <?php endforeach; ?>
+            <ul class="nav-links">
+                <li><a href="home.php">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact</a></li>
 
-        <button type="submit">Submit Quiz</button>
-    </form>
-</div>
+                <?php if (isset($_SESSION['username']) && !empty($_SESSION['username'])): ?>
+                    <!-- Show the username and logout link if logged in -->
+                    <li><span class="username">Hi, <?php echo htmlspecialchars($_SESSION['username']); ?></span></li>
+                    <li><a href="logout.php">Logout</a></li> <!-- Logout link -->
+                <?php else: ?>
+                    <!-- Show login and signup links if not logged in -->
+                    <li><a href="login.php">Login</a></li>
+                    <li><a href="signup.html">Sign Up</a></li>
+                <?php endif; ?>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="quiz-container">
+        <h1>Quiz</h1>
+        <form action="quiz.php" method="POST">
+            <?php foreach ($questions as $index => $question): ?>
+                <div class="question">
+                    <p><strong><?php echo ($index + 1) . ". " . $question['question']; ?></strong></p>
+                    <div class="options">
+                        <label><input type="radio" name="answers[<?php echo $question['id']; ?>]" value="A"> <?php echo $question['option_a']; ?></label>
+                        <label><input type="radio" name="answers[<?php echo $question['id']; ?>]" value="B"> <?php echo $question['option_b']; ?></label>
+                        <label><input type="radio" name="answers[<?php echo $question['id']; ?>]" value="C"> <?php echo $question['option_c']; ?></label>
+                        <label><input type="radio" name="answers[<?php echo $question['id']; ?>]" value="D"> <?php echo $question['option_d']; ?></label>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+
+            <button type="submit">Submit Quiz</button>
+        </form>
+    </div>
 
 </body>
 </html>
