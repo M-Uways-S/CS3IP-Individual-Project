@@ -93,13 +93,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <nav>
             <div class="logo">
                 <img src="images/cookies-logo.png" alt="Cookies Logo" class="logo-img"> 
-                <span class="red-text">ookies... Are they really safe?</span>
+                <span class="red-text">ookies Shield</span>
             </div>
             <ul class="nav-links">
                 <li><a href="home.php">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="learn.php">Learn</a></li>
+                <li><a href="quiz.php">Quiz</a></li>
 
                 <?php if (isset($_SESSION['username']) && !empty($_SESSION['username'])): ?>
                     <!-- Show the username and logout link if logged in -->

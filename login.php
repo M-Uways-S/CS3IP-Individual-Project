@@ -58,13 +58,12 @@ $conn->close();
         <nav>
             <div class="logo">
                 <img src="images/cookies-logo.png" alt="Cookies Logo" class="logo-img"> 
-                <span class="red-text">Cookies... Are they really safe?</span>
+                <span class="red-text">ookies Shield</span>
             </div>
             <ul class="nav-links">
                 <li><a href="home.php">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="learn.php">Learn</a></li>
+                <li><a href="quiz.php">Quiz</a></li>
 
                 <?php if (isset($_SESSION['username']) && !empty($_SESSION['username'])): ?>
                     <li><span class="username">Hi, <?php echo htmlspecialchars($_SESSION['username']); ?></span></li>
