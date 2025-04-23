@@ -7,21 +7,42 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Homepage</title>
+
     <link rel="stylesheet" href="styles.css">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-…"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+/>
+
 </head>
+
+
 <body>
-    <div id="overlay" class="overlay"></div> <!-- Dark overlay until user accepts cookies -->
+    <!-- Full-page overlay till user accepts cookies -->
+    <div id="overlay" class="overlay hidden"></div>
 
-    <div id="cookie-popup" class="cookie-popup"> <!-- Cookie consent pop-up -->
-        <p id="cookie-message">This website uses cookies to enhance your experience. Do you accept?</p>
-        <button id="accept-btn">Accept</button>
-        <button id="decline-btn">Decline</button>
+    <!-- Bottom‐banner cookie consent -->
+    <div id="cookie-consent" class="cookie-consent hidden">
+        <div class="cookie-consent-content">
+            <p>
+                We use cookies to personalise content, analyse traffic, and improve your experience.
+                By clicking “Accept All” you agree to our use of cookies.
+                You can also <a href="/cookie-policy.php" target="_blank">read our policy</a> or
+                <button id="cookie-manage-btn" class="link-btn">Manage preferences</button>.
+            </p>
+            <div class="cookie-buttons">
+                <button id="cookie-reject" class="btn-secondary">Reject All</button>
+                <button id="cookie-accept" class="btn-primary">Accept All</button>
+            </div>
+        </div>
     </div>
-
-    <button id="reset-cookies" class="reset-btn">Reset Cookies</button> <!-- Developer only -->
 
     <header class="site-header">
         <nav class="site-nav">
+            <!-- Logo -->
             <a href="home.php" class="logo">
                 <img src="images/cookies-logo.png" alt="Cookies Logo" class="logo-img">
                 Cookie Shield
@@ -33,6 +54,7 @@ session_start();
                 <li><a href="quiz.php">Quiz</a></li>
             </ul>
 
+            <!-- login and signup button on nav here -->
             <ul class="nav-auth">
                 <?php if (!empty($_SESSION['username'])): ?>
                     <li><span class="username">Hi, <?php echo htmlspecialchars($_SESSION['username']); ?></span></li>
@@ -48,24 +70,93 @@ session_start();
 
     <section class="welcome-banner">
         <div class="welcome-content">
-            <h1 class="welcome-headline">
-                <span id="typewriter-text"></span>
-            </h1>
-            <p class="welcome-description">
-                Cookies are everywhere, but do you really know what they do? This website uses cookies to enhance your experience, but we also want to educate you about their risks. Before you continue, please let us know if you accept cookies below.
-            </p>
-            <div class="arrow-container">
-                <span class="arrow right-arrow">→</span>
-                <a href="#" id="learn-more-btn" class="btn get-started">Learn About Cookies</a>
-                <span class="arrow left-arrow">←</span>
+            <div class="welcome-text">
+                <h1>Protect Your Digital Privacy</h1>
+                <h2>Understanding Cookie Consent Matters</h2>
+                <p>
+                    In today’s digital world, your data is constantly being tracked, collected,
+                    and analyzed. Learn how to protect yourself by understanding what you’re really
+                    agreeing to when you click “Accept All.”
+                </p>
+                <div class="welcome-buttons">
+                    <a href="learn.php" class="btn primary">Learn More</a>
+                    <a href="quiz.php" class="btn secondary">Take the Quiz</a>
+                </div>
+            </div>
+            <div class="welcome-image">
+                <img src="images/cookie2.gif" alt="Cookie Consent Illustration">
+                <!-- ref for img.gif:  https://www.flaticon.com/free-animated-icon/cookie_17507059?term=cookie&page=1&position=9&origin=search&related_id=17507059-->
             </div>
         </div>
     </section>
 
-    <footer>
-        <p>&copy; 2025 MyWebsite. All rights reserved.</p>
-    </footer>
+    <section class="info-banner">
+        <h2 class="info-title">Why You Should Care About Cookie Consent</h2>
+        <div class="info-cards">
+            <div class="info-card">
+                <i class="fas fa-user-secret info-icon"></i>
+                <h3>Privacy Compromise</h3>
+                <p>Accepting cookies without reading the details can compromise your online privacy.</p>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-fingerprint info-icon"></i>
+                <h3>Digital Fingerprinting</h3>
+                <p>Cookies can create a unique digital fingerprint that tracks you across websites.</p>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-database info-icon"></i>
+                <h3>Data Collection</h3>
+                <p>Your browsing habits, preferences, and personal information are collected and stored.</p>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-ad info-icon"></i>
+                <h3>Targeted Advertising</h3>
+                <p>Your data is used to create targeted advertisements tailored to your behavior.</p>
+            </div>
+        </div>
+    </section>
 
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="/about.php">About Us</a></li>
+                    <li><a href="/careers.php">Careers</a></li>
+                    <li><a href="/blog.php">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="/help.php">Help Center</a></li>
+                    <li><a href="/contact.php">Contact Us</a></li>
+                    <li><a href="/faq.php">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="/terms.php">Terms of Service</a></li>
+                    <li><a href="/privacy.php">Privacy Policy</a></li>
+                    <li><a href="/cookies.php">Cookie Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Social</h4>
+                <ul>
+                    <li><a href="https://twitter.com/YourCompany" target="_blank">Twitter</a></li>
+                    <li><a href="https://facebook.com/YourCompany" target="_blank">Facebook</a></li>
+                    <li><a href="https://linkedin.com/company/YourCompany" target="_blank">LinkedIn</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Cookie Shield. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <button id="cookie-reset-btn" class="btn-reset">Reset Cookies</button>
     <script src="script.js"></script>
 </body>
 </html>

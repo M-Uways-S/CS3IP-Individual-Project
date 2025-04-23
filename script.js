@@ -1,63 +1,83 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const cookiePopup = document.getElementById("cookie-popup");
-    const overlay = document.getElementById("overlay");
-    const acceptBtn = document.getElementById("accept-btn");
-    const declineBtn = document.getElementById("decline-btn");
-    const cookieMessage = document.getElementById("cookie-message");
-    const resetBtn = document.getElementById("reset-cookies");
+// script.js
+document.addEventListener("DOMContentLoaded", () => {
+    const overlay    = document.getElementById("overlay");
+    const banner     = document.getElementById("cookie-consent");
+    const contentDiv = banner.querySelector(".cookie-consent-content");
 
-    // Create Refresh button dynamically
-    const refreshBtn = document.createElement("button");
-    refreshBtn.innerText = "Refresh";
-    refreshBtn.id = "refresh-btn";
-    refreshBtn.style.display = "none";
-    refreshBtn.style.background = "#ff9800";
-    refreshBtn.style.color = "white";
-    refreshBtn.style.padding = "8px 15px";
-    refreshBtn.style.border = "none";
-    refreshBtn.style.cursor = "pointer";
-    refreshBtn.style.borderRadius = "5px";
+    const acceptBtn  = document.getElementById("cookie-accept");
+    const rejectBtn  = document.getElementById("cookie-reject");
+    const manageBtn  = document.getElementById("cookie-manage-btn");
 
-    // Append the Refresh button next to the message
-    cookiePopup.appendChild(refreshBtn);
-
-    // Show popup and overlay until accepted
-    if (localStorage.getItem("cookiesAccepted") !== "true") {
-        cookiePopup.classList.remove("hidden");
-        overlay.style.display = "block"; 
-        document.body.style.overflow = "hidden"; 
-    } else {
-        overlay.style.display = "none"; 
-        document.body.style.overflow = "auto"; 
+    // Helper to hide both overlay & banner
+    function completeConsent() {
+        overlay.classList.add("hidden");
+        banner.classList.add("hidden");
     }
 
-    // Accept button
-    acceptBtn.addEventListener("click", function () {
+    // Handler for Accept All (works in both modes)
+    function handleAccept() {
         localStorage.setItem("cookiesAccepted", "true");
-        cookiePopup.classList.add("hidden");
-        overlay.style.display = "none"; 
-        document.body.style.overflow = "auto"; 
-    });
+        completeConsent();
+        // init analytics etc...
+    }
 
-    // Decline button
-    declineBtn.addEventListener("click", function () {
-        cookieMessage.innerHTML = "You must accept cookies to use this site. Please refresh to accept.";
-        acceptBtn.style.display = "none";
-        declineBtn.style.display = "none";
-        refreshBtn.style.display = "block";
-    });
+    // Render the “reject” state: shake + test message + lone Accept button
+    function renderRejectState() {
+        banner.classList.add("shake");
+        setTimeout(() => banner.classList.remove("shake"), 500);
 
-    // Refresh button (reloads the page)
-    refreshBtn.addEventListener("click", function () {
-        location.reload();
-    });
+        contentDiv.innerHTML = `
+            <p>
+                This is a test to show users an example of how users are coerced
+                into clicking “Accept All.”
+            </p>
+            <div class="cookie-buttons">
+                <button id="cookie-accept-alone" class="btn-primary">
+                    Accept All to Continue
+                </button>
+            </div>
+        `;
+        // Bind the lone Accept
+        document
+          .getElementById("cookie-accept-alone")
+          .addEventListener("click", handleAccept);
+    }
 
-    // Reset Cookies button (For Development)
-    resetBtn.addEventListener("click", function () {
-        localStorage.removeItem("cookiesAccepted");
-        location.reload(); // Reload page to see cookie popup again
-    });
+    // Initial check
+    const choice = localStorage.getItem("cookiesAccepted");
+    if (choice === "true") {
+        // Already accepted → nothing to do
+        completeConsent();
+    } else {
+        // Either never seen banner (choice===null) or previously rejected (choice==="false")
+        overlay.classList.remove("hidden");
+        banner.classList.remove("hidden");
 
-    // Show Reset Button only for development mode
-    document.body.classList.add("dev-mode");
+        if (choice === "false") {
+            // They had rejected before → show the test message immediately
+            renderRejectState();
+        } else {
+            // First‐time visitor → bind the normal Accept/Reject/Manage flows
+            acceptBtn.addEventListener("click", handleAccept);
+            rejectBtn.addEventListener("click", () => {
+                localStorage.setItem("cookiesAccepted", "false");
+                renderRejectState();
+                // keep overlay/banner visible until they accept
+                overlay.classList.remove("hidden");
+                banner.classList.remove("hidden");
+            });
+            manageBtn.addEventListener("click", () => {
+                alert("Here would open cookie settings.");
+            });
+        }
+    }
+
+
+        // Reset Cookies (admin/testing)
+        const resetBtn = document.getElementById("cookie-reset-btn");
+        resetBtn.addEventListener("click", () => {
+            localStorage.removeItem("cookiesAccepted");
+            location.reload();
+        });
+    
 });
