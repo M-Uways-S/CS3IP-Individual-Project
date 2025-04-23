@@ -89,25 +89,27 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <body>
 
     <!-- Navbar copied from home.php -->
-    <header>
-        <nav>
-            <div class="logo">
-                <img src="images/cookies-logo.png" alt="Cookies Logo" class="logo-img"> 
-                <span class="red-text">ookies Shield</span>
-            </div>
-            <ul class="nav-links">
+    <header class="site-header">
+        <nav class="site-nav">
+            <a href="home.php" class="logo">
+                <img src="images/cookies-logo.png" alt="Cookies Logo" class="logo-img">
+                Cookie Shield
+            </a>
+
+            <ul class="nav-main">
                 <li><a href="home.php">Home</a></li>
                 <li><a href="learn.php">Learn</a></li>
                 <li><a href="quiz.php">Quiz</a></li>
+            </ul>
 
-                <?php if (isset($_SESSION['username']) && !empty($_SESSION['username'])): ?>
-                    <!-- Show the username and logout link if logged in -->
+            <ul class="nav-auth">
+                <?php if (!empty($_SESSION['username'])): ?>
                     <li><span class="username">Hi, <?php echo htmlspecialchars($_SESSION['username']); ?></span></li>
-                    <li><a href="logout.php">Logout</a></li> <!-- Logout link -->
+                    <li><a href="logout.php">Logout</a></li>
                 <?php else: ?>
                     <!-- Show login and signup links if not logged in -->
                     <li><a href="login.php">Login</a></li>
-                    <li><a href="signup.html">Sign Up</a></li>
+                    <li><a href="signup.php">Sign Up</a></li>
                 <?php endif; ?>
             </ul>
         </nav>

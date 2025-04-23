@@ -6,149 +6,141 @@ body {
     box-sizing: border-box;
 }
 
-/* Disable scrolling when popup is active */
-body.no-scroll {
-    overflow: hidden;
+/* Site Header */
+.site-header {
+    width: 100%;
+    background: #222;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
-/* Navbar */
-header {
-    background: #333;
-    padding: 15px 0;
-    position: relative; /* Added to position logo correctly inside the navbar */
-}
-
-nav {
+/* 1. Full-width navbar */
+.site-nav {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    width: 80%;
-    margin: auto;
+    justify-content: space-between; /* logo ⟷ main links ⟷ auth links */
+    width: 100%;        /* span entire viewport */
+    max-width: none;    /* remove any max-width */
+    padding: 0.5rem 1rem;    /* horizontal padding only */
+    box-sizing: border-box; /* ensures padding is inside the width */
 }
 
-/* Logo Image Resizing */
+/* Logo */
 .logo {
     display: flex;
     align-items: center;
+    font-size: 1.5rem;
     font-weight: bold;
-    font-size: 24px;
-    color: white;
-    position: absolute; /* Fix logo to the top-left corner */
-    left: 20px; /* Adjust from the left */
-    top: 50%;
-    transform: translateY(-50%); /* Vertically center it */
+    color: #fff;
+    text-decoration: none;
+    margin: 0;          /* overrides any leftover margin */
+    padding: 0;         /* remove internal padding */
 }
 
-img.logo-img {
-    width: 75px; /* Make the image bigger */
+.logo-img {
+    width: 75px;
     height: auto;
-    vertical-align: middle;
-    margin-right: 10px; /* Adjust to bring text and logo closer */
-    position: relative;
-    animation: imageChase 3s ease-in-out infinite; /* Animation applied */
+    margin-right: 0.5rem;
 }
 
-/* Keyframes for the chasing animation */
-@keyframes imageChase {
-    0% {
-        margin-right: 10px; /* Start near the text */
-        transform: scale(1); /* Normal size */
-    }
-    25% {
-        margin-right: 5px; /* Move closer to the text */
-        transform: scale(1.1); /* Slightly enlarge image */
-    }
-    50% {
-        margin-right: 0px; /* Image is now near the text */
-        transform: scale(1.2); /* Enlarge more */
-    }
-    75% {
-        margin-right: 5px; /* Move further ahead */
-        transform: scale(1.1); /* Slightly shrink image */
-    }
-    100% {
-        margin-right: 10px; /* Back to starting position */
-        transform: scale(1); /* Return to normal size */
-    }
-}
-
-/* Navbar Link Styles */
-.nav-links {
+/* Main Links (center) */
+.nav-main {
     list-style: none;
     display: flex;
-    margin-left: auto; /* Align the nav links to the right */
+    gap: 1.5rem;
+    margin: 0; padding: 0;
 }
-
-.nav-links li {
-    margin: 0 15px;
-}
-
-.nav-links a {
+.nav-main a {
+    color: #f0f0f0;
     text-decoration: none;
-    color: white;
-    font-size: 16px;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+.nav-main a:hover {
+    color: #ff6f61;
 }
 
-.nav-links a:hover {
-    color: #f4a261;
+/* Auth Links (right) */
+.nav-auth {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    margin: 0; padding: 0;
 }
 
-/* Welcome Banner Section */
+.nav-auth a,
+.nav-auth .username {
+    color: #f0f0f0;
+    text-decoration: none;
+    font-weight: 500;
+}
+.nav-auth a:hover {
+    color: #ff6f61;
+}
+/* Increase nav link text size */
+.nav-main a,
+.nav-auth a {
+    font-size: 1.125rem;  /* ~18px – adjust as desired */
+}
+.nav-main {
+    gap: 2rem;   /* instead of 1.5rem */
+}
+.nav-auth {
+    gap: 1.5rem; /* instead of 1rem */
+}
+
+.nav-auth i {
+    margin-right: 0.5rem;
+    font-size: 1.125rem; /* matches your link text size */
+    vertical-align: middle;
+}
+
+/* Welcome Banner */
 .welcome-banner {
     text-align: center;
     padding: 100px 20px;
-    background: #f4f4f4;
-}
-
-.welcome-banner h1 {
-    font-size: 36px;
-    margin-bottom: 10px;
-}
-
-.welcome-banner p {
-    font-size: 18px;
-    margin-bottom: 20px;
-}
-
-/* Get Started Button */
-.get-started {
-    display: inline-block;
-    padding: 10px 20px;
-    background: #333;
+    background: linear-gradient(135deg, #000000, #ffb300);
     color: white;
+}
+.welcome-banner .btn.get-started {
+    background: #ff6f61;
+    color: white;
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    border-radius: 25px;
     text-decoration: none;
-    font-size: 18px;
-    border-radius: 5px;
-    margin-top: 20px;
+    transition: background 0.3s ease;
+    animation: flashButton 1.5s infinite;
+}
+.welcome-banner .btn.get-started:hover {
+    background: #000000;
+}
+.arrow {
+    font-size: 2rem;
+    color: #ff6f61;
+    animation: bounceArrow 1s infinite;
+}
+@keyframes flashButton {
+    0%, 100% { background: #000000; }
+    50%      { background: #ff7b00; }
+}
+@keyframes bounceArrow {
+    0%, 100% { transform: translateX(0); }
+    50%      { transform: translateX(10px); }
 }
 
-.get-started:hover {
-    background: #f4a261;
-}
-
-/* Footer */
-footer {
-    background: #333;
-    color: white;
-    text-align: center;
-    padding: 10px 0;
-    position: relative;
-    bottom: 0;
-    width: 100%;
-}
-
-/* Overlay (Prevents Interaction) */
+/* Cookie Popup */
 .overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0,0,0,0.5);
     z-index: 10;
 }
-
-/* Cookie Popup */
 .cookie-popup {
     position: fixed;
     bottom: 20px;
@@ -158,16 +150,12 @@ footer {
     color: white;
     padding: 15px;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
     display: flex;
     align-items: center;
     gap: 10px;
-    justify-content: center;
-    opacity: 1;
-    transition: opacity 0.3s ease-in-out;
     z-index: 11;
 }
-
 .cookie-popup button {
     padding: 8px 15px;
     border: none;
@@ -175,115 +163,54 @@ footer {
     font-size: 14px;
     border-radius: 5px;
 }
-
 #accept-btn {
     background: #4CAF50;
     color: white;
 }
-
 #decline-btn {
     background: #f44336;
     color: white;
 }
-
-/* Hide popup when accepted */
 .hidden {
     opacity: 0;
     pointer-events: none;
 }
-
-/* Reset Cookies Button (For Development) */
 .reset-btn {
     position: fixed;
-    bottom: 20px;  /* Move to the bottom */
-    left: 20px;    /* Move to the left */
+    bottom: 20px;
+    left: 20px;
     background: #f44336;
     color: white;
     padding: 10px 15px;
     border: none;
-    cursor: pointer;
     border-radius: 5px;
-    font-size: 14px;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
-    display: none; /* Hidden by default */
-    z-index: 1000; /* Ensure it's on top */
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+    display: none;
+    z-index: 1000;
 }
-
-/* Show Reset Button only in development mode */
 body.dev-mode .reset-btn {
     display: block;
 }
 
-/* Style for the red text */
-.red-text {
-    color: red; /* Change the text color to red */
-}
-
-/* Center the login box */
-.login-page {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh; /* Full screen height */
-    background-color: #f4f4f4;
-}
-
-/* Bigger and more central login box */
-.login-box {
-    background: white;
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-    width: 400px; /* Increase width */
-    text-align: center;
-}
-
-/* Make input fields bigger */
-.login-box input {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-}
-
-/* Make button bigger */
-.login-box .btn {
-    width: 100%;
-    padding: 12px;
-    font-size: 18px;
-    background: #333;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.login-box .btn:hover {
-    background: #f4a261;
-}
-
-/* Center the signup box */
+/* Login & Signup Pages */
+.login-page,
 .signup-page {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f4f4f4;
+    background: #f4f4f4;
 }
-
-/* Signup box similar to login */
+.login-box,
 .signup-box {
     background: white;
     padding: 40px;
     border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
     width: 400px;
     text-align: center;
 }
-
-/* Make input fields bigger */
+.login-box input,
 .signup-box input {
     width: 100%;
     padding: 10px;
@@ -292,8 +219,7 @@ body.dev-mode .reset-btn {
     border-radius: 5px;
     font-size: 16px;
 }
-
-/* Make button bigger */
+.login-box .btn,
 .signup-box .btn {
     width: 100%;
     padding: 12px;
@@ -304,215 +230,60 @@ body.dev-mode .reset-btn {
     border-radius: 5px;
     cursor: pointer;
 }
-
+.login-box .btn:hover,
 .signup-box .btn:hover {
     background: #f4a261;
 }
-
-.welcome-banner {
-    background: linear-gradient(135deg, #000000, #ffb300);
-    color: white;
-    padding: 60px 20px;
-    text-align: center;
-    position: relative;
-    overflow: visible;
-}
-
-.welcome-content {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.welcome-headline {
-    font-size: 2.5rem;
-    font-weight: bold;
-    margin-bottom: 20px;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    min-width: 100%;
-}
-
-#typewriter-text {
-    display: inline-block;
-    border-right: 3px solid white;
-    white-space: nowrap;
-    overflow: visible;
-    animation: blinkCursor 0.75s step-end infinite;
-    text-align: left;
-}
-
-.welcome-description {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
-    animation: fadeInUp 2s ease-out;
-}
-
-.arrow-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-}
-
-.arrow {
-    font-size: 2rem;
-    color: #ff6f61;
-    animation: bounceArrow 1s infinite;
-}
-
-.btn.get-started {
-    background: #ff6f61;
-    color: white;
-    padding: 12px 30px;
-    font-size: 1.1rem;
-    border-radius: 25px;
-    text-decoration: none;
-    transition: background 0.3s ease;
-    animation: flashButton 1.5s infinite;
-}
-
-.btn.get-started:hover {
-    background: #000000;
-}
-
-@keyframes blinkCursor {
-    from, to { border-color: transparent; }
-    50% { border-color: white; }
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes flashButton {
-    0%, 100% {
-        background: #000000;
-    }
-    50% {
-        background: #ff7b00;
-    }
-}
-
-@keyframes bounceArrow {
-    0%, 100% {
-        transform: translateX(0);
-    }
-    50% {
-        transform: translateX(10px);
-    }
-}
-
-/* Gradient style */
-.cookie-info-content {
-    background: linear-gradient(to right, #000000, #ff8c00); /* Similar gradient to previous one */
-    padding: 40px;
-    border-radius: 8px;
-    color: white;
-}
-
-/* Hide the section initially */
-.cookie-info.hidden {
-    display: none;
-}
-
-.typewriter-text {
-    display: inline-block;
-    overflow: hidden;
-    border-right: 4px solid #fff; /* Simulate cursor */
-    width: 0; /* Start with no text showing */
-    animation: typing 4s steps(50) 1s forwards, blink 0.75s step-end infinite;
-    white-space: normal; /* Allow text to wrap */
-    word-wrap: break-word; /* Ensure long words break to the next line */
-}
-
-/* Animation for typing */
-@keyframes typing {
-    from {
-        width: 0;
-    }
-    to {
-        width: 100%;
-    }
-}
-
-/* Animation for cursor blinking */
-@keyframes blink {
-    50% {
-        border-color: transparent;
-    }
-}
-
 
 /* Quiz Container */
 .quiz-container {
     max-width: 800px;
     margin: 50px auto;
     padding: 20px;
-    background-color: #ebcece;
+    background: #ebcece;
     border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
-
-/* Title */
 .quiz-container h1 {
     font-size: 2rem;
     color: #333;
     text-align: center;
     margin-bottom: 20px;
 }
-
-/* Question */
 .question {
     margin-bottom: 20px;
     font-size: 1.1rem;
     color: #333;
 }
-
-/* Options */
 .options {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
-
 .options label {
-    font-size: 1rem;
     padding: 10px;
-    background-color: #f1f1f1;
+    background: #f1f1f1;
     border: 1px solid #ddd;
     border-radius: 5px;
     cursor: pointer;
     transition: all 0.3s;
 }
-
 .options input[type="radio"] {
     display: none;
 }
-
 .options label:hover {
-    background-color: #ddd;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background: #ddd;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
-
 .options input[type="radio"]:checked + label {
-    background-color: #007bff;
+    background: #007bff;
     color: white;
     border-color: #0056b3;
 }
-
-/* Submit Button */
 button[type="submit"] {
     width: 100%;
     padding: 12px;
-    background-color: #007bff;
+    background: #007bff;
     color: white;
     font-size: 1.1rem;
     border: none;
@@ -520,21 +291,15 @@ button[type="submit"] {
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
-
 button[type="submit"]:hover {
-    background-color: #0056b3;
+    background: #0056b3;
 }
 
-/* Score Display */
-h2 {
+/* Footer */
+footer {
+    background: #333;
+    color: white;
     text-align: center;
-    font-size: 1.5rem;
-    color: #333;
-    margin-top: 20px;
-    font-weight: 500;
-}
-
-/* Add this to make the submit button more visually interactive */
-button[type="submit"]:hover {
-    background-color: #0056b3;
+    padding: 10px 0;
+    width: 100%;
 }
