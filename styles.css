@@ -513,3 +513,396 @@ footer {
 @keyframes blink {
     50% { border-color: transparent; }
 }
+
+/* — Score screen styling — */
+.result-container {
+    max-width: 500px;
+    margin: 80px auto;
+    padding: 30px;
+    background: #1f2a44;      
+    color: #e0e0e0;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    text-align: center;
+}
+
+.result-container h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.result-container .score-value {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.result-container .btn {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+  /* Make sure your primary/secondary buttons look good on dark bg */
+.btn.primary {
+    background: #ff6f61;
+    color: white;
+}
+.btn.secondary {
+    background: transparent;
+    border: 2px solid #ff6f61;
+    color: white;
+}
+.btn.primary:hover,
+.btn.secondary:hover {
+    opacity: 0.9;
+}
+  /* — Result Screen Card — */
+.result-container {
+    max-width: 580px;
+    margin: 100px auto;
+    padding: 40px 30px;
+    background: #1f2a44;               
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+    text-align: center;
+}
+
+.result-container h2 {
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+    color: #fff;
+}
+
+.result-container .score-value {
+    font-size: 4rem;
+    font-weight: bold;
+    margin: 0.5rem 0 1.5rem;
+    color: #ff6f61;              
+}
+
+  /* Button Group */
+  .btn-group {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+  .btn-group .btn {
+    flex: 1;              
+    max-width: 150px;     
+    padding: 0.75rem 1rem;
+    text-align: center;
+  }
+  /* Primary & Secondary Buttons */
+.btn {
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    font-weight: 500;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.2s, color 0.2s;
+}
+
+  /* Primary (solid) */
+.btn.primary {
+    background: #ff6f61;
+    color: #fff;
+}
+.btn.primary:hover {
+    background: #e55a4e;
+}
+
+  /* Secondary (outline) */
+.btn.secondary {
+    background: transparent;
+    border: 2px solid #ff6f61;
+    color: #ff6f61;
+}
+.btn.secondary:hover {
+    background: #ff6f61;
+    color: #fff;
+}
+/* ─── Quiz Header: Timer + Progress ─── */
+.quiz-header {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+.timer {
+    font-size: 1.1rem;
+    color: #e0e0e0;
+}
+.progress-text {
+    font-size: 0.95rem;
+    color: #ccc;
+}
+.progress {
+    width: 100%;
+    height: 8px;
+    background: #333;
+    border-radius: 4px;
+    overflow: hidden;
+}
+#progress-bar {
+    width: 0%;
+    height: 100%;
+    background: #ff6f61;
+    transition: width 0.3s ease;
+}
+/* — Leaderboard Styles — */
+.leaderboard-container {
+    max-width: 600px;
+    margin: 60px auto;
+    padding: 30px;
+    background: #1f2a44;
+    color: #e0e0e0;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    text-align: center;
+  }
+  
+  .leaderboard-container h1 {
+    margin-bottom: 20px;
+  }
+  
+  /* Make the table fixed-layout and set its base styling */
+  .leaderboard-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    table-layout: fixed;    /* force equal column widths */
+  }
+  
+  /* Padding on every cell */
+  .leaderboard-table th,
+  .leaderboard-table td {
+    padding: 12px 8px;
+  }
+  
+  /* Header row background & text color */
+  .leaderboard-table thead {
+    background: #2a334e;
+  }
+  
+  .leaderboard-table th {
+    color: #ff6f61;
+    text-align: left;
+  }
+  
+  /* Row borders and highlighted “you” row */
+  .leaderboard-table tbody tr {
+    border-bottom: 1px solid #343a55;
+  }
+  
+  .leaderboard-table tbody tr.you {
+    background: rgba(255,111,97,0.1);
+  }
+  
+  /* Body cell text color */
+  .leaderboard-table td {
+    color: #e0e0e0;
+  }
+  
+/* ─── Leaderboard Column Alignment (4 columns) ─── */
+.leaderboard-table {
+    table-layout: fixed;  /* fix column widths */
+  }
+  
+  /* Rank: narrow, centered */
+  .leaderboard-table th:nth-child(1),
+  .leaderboard-table td:nth-child(1) {
+    width: 15%;
+    text-align: center;
+  }
+  
+  /* Username: takes up the bulk, left-aligned */
+  .leaderboard-table th:nth-child(2),
+  .leaderboard-table td:nth-child(2) {
+    width: 45%;
+    text-align: left;
+  }
+  
+  /* Score: medium, centered */
+  .leaderboard-table th:nth-child(3),
+  .leaderboard-table td:nth-child(3) {
+    width: 20%;
+    text-align: center;
+  }
+  
+  /* Percent: medium, centered */
+  .leaderboard-table th:nth-child(4),
+  .leaderboard-table td:nth-child(4) {
+    width: 20%;
+    text-align: center;
+  }
+  
+  
+  /* Button under the table */
+  .leaderboard-container .btn {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.75rem 1.5rem;
+    font-weight: 500;
+    border-radius: 6px;
+    text-decoration: none;
+  }
+  
+  .btn.primary {
+    background: #ff6f61;
+    color: #fff;
+  }
+  
+  .btn.primary:hover {
+    background: #e55a4e;
+  }
+
+/* — Review Answers Styles — */
+.review-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+  }
+  .review-container h3 {
+    color: #ff6f61;
+    margin-bottom: 16px;
+    text-align: center;
+  }
+  .review-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .review-list li {
+    padding: 16px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+  }
+  .review-list li.correct {
+    background: #1e3d00;   /* dark green */
+    color: #b6ff00;        /* light green text */
+  }
+  .review-list li.wrong {
+    background: #3d0000;   /* dark red */
+    color: #ffb6b6;        /* light red text */
+  }
+  .review-list li p {
+    margin: 4px 0;
+  }
+/* ─── Learn Page Layout ─── */
+.learn-main {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+  }
+  
+  /* ─── Table of Contents ─── */
+  .toc {
+    position: sticky;
+    top: 100px;
+    background: #1f2a44;
+    padding: 1rem;
+    border-radius: 8px;
+  }
+  .toc h4 {
+    color: #ff6f61;
+    margin-bottom: 0.75rem;
+  }
+  .toc ul {
+    list-style: none;
+    padding: 0;
+  }
+  .toc li + li {
+    margin-top: 0.5rem;
+  }
+  .toc a {
+    color: #e0e0e0;
+    text-decoration: none;
+  }
+  .toc a:hover {
+    text-decoration: underline;
+  }
+  
+  /* ─── Accordion ─── */
+  .accordion-toggle {
+    width: 100%;
+    background: #2a334e;
+    color: #fff;
+    padding: 12px;
+    border: none;
+    text-align: left;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-bottom: 4px;
+  }
+  .accordion-toggle:after {
+    content: "▶";
+    float: right;
+    transition: transform 0.2s;
+  }
+  .accordion-toggle.active:after {
+    transform: rotate(90deg);
+  }
+  .accordion-panel {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    background: #1a1c29;
+    padding: 0 12px;
+    border-radius: 0 0 4px 4px;
+    margin-bottom: 1rem;
+  }
+  .accordion-panel.open {
+    padding: 12px;
+    max-height: 400px; /* enough for most content */
+  }
+  
+  /* ─── Cookie Simulator ─── */
+  .cookie-sim {
+    background: #2a334e;
+    padding: 1rem;
+    border-radius: 6px;
+    margin: 1.5rem 0;
+  }
+  .cookie-sim h4 {
+    margin-top: 0;
+    color: #ff6f61;
+  }
+  .cookie-sim input {
+    margin-right: 0.5rem;
+    padding: 6px;
+    border-radius: 4px;
+    border: 1px solid #444;
+    background: #121212;
+    color: #e0e0e0;
+  }
+  .cookie-sim button {
+    margin-right: 0.5rem;
+    padding: 6px 12px;
+    cursor: pointer;
+  }
+  .cookie-sim pre {
+    background: #111;
+    padding: 0.5rem;
+    border-radius: 4px;
+    margin-top: 0.5rem;
+    color: #b6ff00;
+  }
+  
+  /* ─── Glossary ─── */
+  dl {
+    margin: 1rem 0;
+  }
+  dt {
+    font-weight: bold;
+    margin-top: 1rem;
+    color: #ff6f61;
+  }
+  dd {
+    margin: 0 0 0.5rem 1rem;
+    color: #e0e0e0;
+  }
+  
