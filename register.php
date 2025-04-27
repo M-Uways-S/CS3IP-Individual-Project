@@ -3,11 +3,11 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "FYP"; // your database name
+$dbname = "FYP"; 
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-// Check connection
+
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
@@ -16,10 +16,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $user_username = $_POST['username'];
     $user_password = $_POST['password'];
 
-    // Hash the password for security
+    //Hash password
     $hashed_password = password_hash($user_password, PASSWORD_DEFAULT);
 
-    // Insert into the database
     $sql = "INSERT INTO users (username, password, score) VALUES ('$user_username', '$hashed_password', 0)";
 
     if ($conn->query($sql) === TRUE) {

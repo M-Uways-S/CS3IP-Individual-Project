@@ -12,25 +12,22 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Handle login
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $user_username = $_POST['username'];
     $user_password = $_POST['password'];
 
-    // Prepare and execute query to fetch password from DB
     $stmt = $conn->prepare("SELECT password, score FROM users WHERE username = ?");
     $stmt->bind_param("s", $user_username);
     $stmt->execute();
     $stmt->bind_result($db_password, $score);
     $stmt->fetch();
     
-    // Verify password
     if (password_verify($user_password, $db_password)) {
-        // Set session variables
+        // this sets the session variables
         $_SESSION['username'] = $user_username;
         $_SESSION['score'] = $score;
 
-        // Clear local storage for cookies preference upon login
+        // Clears the local storage for cookies preference so banner can appear again
         echo "<script>
                 localStorage.removeItem('cookiesAccepted');
                 window.location.href = 'home.php';
@@ -72,7 +69,7 @@ $conn->close();
                     <li><span class="username">Hi, <?php echo htmlspecialchars($_SESSION['username']); ?></span></li>
                     <li><a href="logout.php">Logout</a></li>
                 <?php else: ?>
-                    <!-- Show login and signup links if not logged in -->
+                    <!-- if logged in will show logout only and say hi to user with there name ^above^ -->
                     <li><a href="login.php">Login</a></li>
                     <li><a href="signup.php">Sign Up</a></li>
                 <?php endif; ?>

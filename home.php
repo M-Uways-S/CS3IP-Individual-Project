@@ -14,17 +14,15 @@ session_start();
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     integrity="sha512-…"
     crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-/>
-
+    referrerpolicy="no-referrer"/>
 </head>
 
 
 <body>
-    <!-- Full-page overlay till user accepts cookies -->
+    <!--overlay till user accepts cookies -->
     <div id="overlay" class="overlay hidden"></div>
 
-    <!-- Bottom‐banner cookie consent -->
+    <!-- cookie consent banner -->
     <div id="cookie-consent" class="cookie-consent hidden">
         <div class="cookie-consent-content">
             <p>
@@ -42,7 +40,7 @@ session_start();
 
     <header class="site-header">
         <nav class="site-nav">
-            <!-- Logo -->
+            <!-- my logo image  -->
             <a href="home.php" class="logo">
                 <img src="images/cookies-logo.png" alt="Cookies Logo" class="logo-img">
                 Cookie Shield
@@ -54,13 +52,12 @@ session_start();
                 <li><a href="quiz.php">Quiz</a></li>
             </ul>
 
-            <!-- login and signup button on nav here -->
             <ul class="nav-auth">
                 <?php if (!empty($_SESSION['username'])): ?>
                     <li><span class="username">Hi, <?php echo htmlspecialchars($_SESSION['username']); ?></span></li>
                     <li><a href="logout.php">Logout</a></li>
                 <?php else: ?>
-                    <!-- Show login and signup links if not logged in -->
+                    <!-- if logged in will show logout only and say hi to user with there name ^above^ -->
                     <li><a href="login.php">Login</a></li>
                     <li><a href="signup.php">Sign Up</a></li>
                 <?php endif; ?>
@@ -169,7 +166,6 @@ session_start();
         </div>
     </footer>
     
-    <button id="cookie-reset-btn" class="btn-reset">Reset Cookies</button>
     <script src="script.js"></script>
 </body>
 </html>

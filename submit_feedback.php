@@ -13,10 +13,8 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Get the feedback from the form
 $feedback_text = $conn->real_escape_string($_POST['feedback_text']);
 
-// Insert feedback into the database
 $sql = "INSERT INTO feedbacks (feedback_text) VALUES ('$feedback_text')";
 if ($conn->query($sql) === TRUE) {
     echo "<script>alert('Thank you for your feedback!'); window.location.href='home.php';</script>";

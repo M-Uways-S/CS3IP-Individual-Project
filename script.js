@@ -1,4 +1,4 @@
-// ───────── COOKIE CONSENT (educational coercion demo) ─────────
+// Cookie consent banner
 document.addEventListener("DOMContentLoaded", () => {
     const overlay   = document.getElementById("overlay");
     const banner    = document.getElementById("cookie-consent");
@@ -44,41 +44,8 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.classList.add("dev-mode");
   });
   
-  // ───────── LEARN-MORE TOGGLE TYPEWRITER (if present) ─────────
-  document.addEventListener("DOMContentLoaded", () => {
-    const btn  = document.getElementById("learn-more-btn");
-    const info = document.getElementById("cookie-info");
-    if (!btn || !info) return;
   
-    btn.addEventListener("click", e => {
-      e.preventDefault();
-      info.classList.toggle("hidden");
-  
-      const headEl = document.getElementById("typewriter-heading");
-      const paraEl = document.getElementById("typewriter-text");
-      if (!headEl || !paraEl) return;
-  
-      headEl.textContent = "";
-      paraEl.textContent = "";
-  
-      const headingText = "Did You Know You Accepted Cookies?";
-      const paraText    = "By clicking 'Accept,' you’ve allowed this website to store your data.";
-  
-      function writer(el, str, speed, cb) {
-        let i = 0;
-        (function step() {
-          if (i < str.length) {
-            el.textContent += str.charAt(i++);
-            setTimeout(step, speed);
-          } else if (cb) cb();
-        })();
-      }
-  
-      writer(headEl, headingText, 50, () => writer(paraEl, paraText, 50));
-    });
-  });
-  
-  // ───────── QUIZ SLIDER + TIMER + PROGRESS (only on quiz.php) ─────────
+  // this is the quiz slider + timer + progress bar for the quiz page 
   document.addEventListener("DOMContentLoaded", () => {
     const slides   = Array.from(document.querySelectorAll('.slide'));
     const prevBtn  = document.getElementById('prev-btn');
@@ -141,14 +108,13 @@ document.addEventListener("DOMContentLoaded", () => {
     showSlide(0);
   });
   
-  // ───────── COOKIE SIMULATOR LOGIC (with delete) ─────────
+  // cookie simulator on learn page
   document.addEventListener("DOMContentLoaded", () => {
     const simName = document.getElementById("cookie-name");
     const simVal  = document.getElementById("cookie-value");
     const out     = document.getElementById("cookie-output");
     if (!simName || !simVal || !out) return;
   
-    // Set Cookie
     document.getElementById("set-cookie").addEventListener("click", () => {
       const name  = encodeURIComponent(simName.value);
       const value = encodeURIComponent(simVal.value);
@@ -156,12 +122,10 @@ document.addEventListener("DOMContentLoaded", () => {
       out.textContent = `Set: ${simName.value}=${simVal.value}`;
     });
   
-    // View Cookies
     document.getElementById("view-cookies").addEventListener("click", () => {
       out.textContent = document.cookie || "No cookies set.";
     });
   
-    // Delete Cookie
     document.getElementById("delete-cookie").addEventListener("click", () => {
       const name = encodeURIComponent(simName.value);
       document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/`;
@@ -169,7 +133,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
   
-// ───────── ACCORDION + PER-USER PROGRESS + QUIZ-GATE ─────────
+// drop down menu + drop down menu progress tablets with ticks + locked quiz feature (till reviewed all content on learn)
 document.addEventListener("DOMContentLoaded", () => {
     const body       = document.body;
     const username   = body.dataset.user || 'guest';
@@ -177,16 +141,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const steps      = document.querySelectorAll(".progress-step");
     const accordions = document.querySelectorAll(".accordion");
     const quizBtn    = document.getElementById("take-quiz-btn");
-  
-    // restore visited steps for *this* user
     let visited = new Set(JSON.parse(localStorage.getItem(storageKey)) || []);
-  
     function renderProgress() {
-      // tick the ones in visited
       steps.forEach(el => {
         el.classList.toggle("completed", visited.has(el.dataset.step));
       });
-      // gate or enable the quiz button
       if (visited.size === steps.length) {
         quizBtn.classList.remove("disabled");
         quizBtn.href = "quiz.php";
@@ -195,7 +154,6 @@ document.addEventListener("DOMContentLoaded", () => {
         quizBtn.href = "#";
       }
     }
-  
     accordions.forEach(acc => {
       const btn   = acc.querySelector(".accordion-toggle");
       const panel = acc.querySelector(".accordion-panel");
@@ -212,7 +170,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
     });
-  
     // clear this user’s progress on logout
     document
     .querySelector('.nav-auth a[href="logout.php"]')
@@ -220,47 +177,44 @@ document.addEventListener("DOMContentLoaded", () => {
       localStorage.removeItem(`learnVisited_${username}`);
     });
   
-  
-    // initial render & gate
     renderProgress();
   });
   
   
-  // ───────── TRY-IT-YOURSELF: RESET CONSENT DEMO ─────────
+  // reset consent demo
   document.addEventListener("DOMContentLoaded", () => {
     const resetConsentBtn = document.getElementById("reset-consent-btn");
     const cookieOutput    = document.getElementById("cookie-output");
     if (!resetConsentBtn) return;
   
     resetConsentBtn.addEventListener("click", () => {
-      // wipe their consent flag
       localStorage.removeItem("cookiesAccepted");
   
-      // re-show your existing banner
+      // re-show same cookie sent banner 
       const banner  = document.getElementById("cookie-consent");
       const overlay = document.getElementById("overlay");
       banner.classList.remove("hidden");
       overlay.classList.remove("hidden");
       document.body.style.overflow = "hidden";
   
-      // feedback message
       if (cookieOutput) {
         cookieOutput.textContent = "Consent reset! Observe how you must Accept All again.";
       }
     });
   });
-  // ───────── NAV-BAR QUIZ LINK GATE ─────────
+
+  // locked quiz on nav bar too so users have to do learn section first
 document.addEventListener("DOMContentLoaded", () => {
-    // grab current user’s key
+
     const user       = document.body.dataset.user || "guest";
     const storageKey = `learnVisited_${user}`;
     const visited    = JSON.parse(localStorage.getItem(storageKey) || "[]");
   
-    // find the quiz link in your main nav
+
     const quizNav = document.querySelector('.nav-main a[href="quiz.php"]');
     if (!quizNav) return;
   
-    // if they haven’t finished all 4 steps, block it
+    // if they haven’t finished all 4 learn sections, block button
     if (visited.length < 4) {
       quizNav.addEventListener("click", (e) => {
         e.preventDefault();

@@ -22,7 +22,7 @@ if ($conn->connect_error) {
 $qRes   = $conn->query("SELECT COUNT(*) AS cnt FROM quiz_questions");
 $totalQ = $qRes ? (int)$qRes->fetch_assoc()['cnt'] : 1;
 
-// 2) Fetch top 10 users by score
+// 2) get top 10 users for leaderboard 
 $sql     = "
   SELECT username, score
   FROM users
@@ -44,7 +44,6 @@ $conn->close();
 </head>
 <body>
 
-  <!-- Header -->
   <header class="site-header">
     <nav class="site-nav">
       <a href="home.php" class="logo">
@@ -68,7 +67,6 @@ $conn->close();
     </nav>
   </header>
 
-  <!-- Leaderboard -->
   <div class="leaderboard-container">
     <h1>Leaderboard</h1>
     <table class="leaderboard-table">
@@ -103,7 +101,6 @@ $conn->close();
     <a href="quiz.php" class="btn primary">Take Quiz</a>
   </div>
 
-  <!-- Footer -->
   <footer>
     <p>&copy; 2025 MyWebsite. All rights reserved.</p>
   </footer>

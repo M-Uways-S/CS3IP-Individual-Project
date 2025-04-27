@@ -19,10 +19,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $user_username = $_POST['username'];
     $user_password = $_POST['password'];
 
-    // Hash the password
     $hashed_password = password_hash($user_password, PASSWORD_DEFAULT);
 
-    // Insert into the database
     $sql = "INSERT INTO users (username, password, score) VALUES (?, ?, 0)";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("ss", $user_username, $hashed_password);
@@ -67,7 +65,6 @@ $conn->close();
                     <li><span class="username">Hi, <?php echo htmlspecialchars($_SESSION['username']); ?></span></li>
                     <li><a href="logout.php">Logout</a></li>
                 <?php else: ?>
-                    <!-- Show login and signup links if not logged in -->
                     <li><a href="login.php">Login</a></li>
                     <li><a href="signup.php">Sign Up</a></li>
                 <?php endif; ?>

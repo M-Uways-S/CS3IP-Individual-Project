@@ -11,7 +11,7 @@ $dbUser = "root";
 $dbPass = "";
 $dbName = "FYP";
 
-// 1) Fetch all questions
+
 $conn = new mysqli($server,$dbUser,$dbPass,$dbName);
 if ($conn->connect_error) {
   die("DB Connection failed: " . $conn->connect_error);
@@ -23,13 +23,12 @@ if (!$res || $res->num_rows === 0) {
 $questions = $res->fetch_all(MYSQLI_ASSOC);
 $conn->close();
 
-// 2) Handle form submission
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-  // get answers safely
+
   $answers = $_POST['answers'] ?? [];
   if (!is_array($answers)) $answers = [];
 
-  // grade
   $conn = new mysqli($server,$dbUser,$dbPass,$dbName);
   if ($conn->connect_error) {
     die("DB Connection failed: " . $conn->connect_error);
@@ -45,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   }
   $stmt->close();
 
-  // save score
+  // this saves score
   $stmt2 = $conn->prepare("UPDATE users SET score = ? WHERE username = ?");
   $stmt2->bind_param("is", $correct, $_SESSION['username']);
   $stmt2->execute();
@@ -63,7 +62,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <!-- Header -->
     <header class="site-header">
       <nav class="site-nav">
         <a href="home.php" class="logo">
@@ -83,7 +81,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       </nav>
     </header>
 
-    <!-- Score Card -->
+      <!-- this is too see the uses score , retake quiz, Leaderboard, review answers -->
     <div class="result-container">
       <h2>Your Score</h2>
       <p class="score-value"><?= $correct ?> / <?= $total ?></p>
@@ -95,7 +93,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       </div>
     </div>
 
-    <!-- Review Answers (hidden until button click) -->
+    <!-- review answers this stays hidden until button click -->
     <div id="review-container" class="review-container hidden">
       <h3>Review Your Answers</h3>
       <ul class="review-list">
@@ -122,14 +120,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       </ul>
     </div>
 
-    <!-- Footer -->
     <footer>
       <p>&copy; 2025 MyWebsite. All rights reserved.</p>
     </footer>
 
     <script src="script.js"></script>
     <script>
-      // Show review when button clicked
       document.addEventListener("DOMContentLoaded", function() {
         const btn = document.getElementById("review-btn");
         if (!btn) return;
@@ -137,7 +133,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           document.getElementById("review-container")
                   .classList.remove("hidden");
           btn.style.display = "none";
-          // scroll into view
           document.getElementById("review-container")
                   .scrollIntoView({behavior:"smooth"});
         });
@@ -159,7 +154,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- Header same as above -->
   <header class="site-header">
     <nav class="site-nav">
       <a href="home.php" class="logo">
@@ -179,11 +173,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </nav>
   </header>
 
-  <!-- Quiz Container -->
   <div class="quiz-container">
     <h1>Quiz</h1>
 
-    <!-- Timer & Progress -->
+    <!-- Timer for quiz and progress bar  -->
     <div class="quiz-header">
       <div class="timer">Time Left: <span id="time">30</span>s</div>
       <div class="progress-text" id="progress-text">
@@ -227,7 +220,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </form>
   </div>
 
-  <!-- Footer -->
   <footer>
     <p>&copy; 2025 MyWebsite. All rights reserved.</p>
   </footer>
