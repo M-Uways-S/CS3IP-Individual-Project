@@ -1,908 +1,1066 @@
 /* Base */
 body {
-    background: #121212;
-    color: #e0e0e0;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  background: #121212;
+  color: #e0e0e0;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 /* — Site Header & Navbar — */
 .site-header {
-    width: 100%;
-    background: #222;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    position: sticky;
-    top: 0;
-    z-index: 100;
+  width: 100%;
+  background: #222;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 .site-nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
 }
 
 /* Logo */
 .logo {
-    display: flex;
-    align-items: center;
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #fff;
-    text-decoration: none;
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
 }
 .logo-img {
-    width: 75px;
-    margin-right: 0.5rem;
+  width: 75px;
+  margin-right: 0.5rem;
 }
 
 /* Main Links */
 .nav-main {
-    list-style: none;
-    display: flex;
-    gap: 2rem;
-    margin: 0;
-    padding: 0;
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
 }
 .nav-main a {
-    color: #f0f0f0;
-    text-decoration: none;
-    font-size: 1.125rem;
-    font-weight: 500;
-    transition: color 0.2s;
+  color: #f0f0f0;
+  text-decoration: none;
+  font-size: 1.125rem;
+  font-weight: 500;
+  transition: color 0.2s;
 }
 .nav-main a:hover {
-    color: #ff6f61;
+  color: #ff6f61;
 }
 
 /* Auth Links */
 .nav-auth {
-    list-style: none;
-    display: flex;
-    gap: 1.5rem;
-    margin: 0;
-    padding: 0;
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
 }
 .nav-auth a,
 .nav-auth .username {
-    color: #f0f0f0;
-    text-decoration: none;
-    font-size: 1.125rem;
-    font-weight: 500;
+  color: #f0f0f0;
+  text-decoration: none;
+  font-size: 1.125rem;
+  font-weight: 500;
 }
 .nav-auth a:hover {
-    color: #ff6f61;
+  color: #ff6f61;
 }
 
 /* — Welcome Banner — */
 .welcome-banner {
-    background: #0f101a;
-    padding: 80px 20px;
-    color: #fff;
+  background: #0f101a;
+  padding: 80px 20px;
+  color: #fff;
 }
 .welcome-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    max-width: 1200px;
-    margin: auto;
-    gap: 2rem;
-    flex-wrap: wrap;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: auto;
+  gap: 2rem;
+  flex-wrap: wrap;
 }
 .welcome-text {
-    flex: 1 1 400px;
+  flex: 1 1 400px;
 }
 .welcome-text h1 {
-    font-size: 3rem;
-    margin: 0;
-    color: #ff6f61;
+  font-size: 3rem;
+  margin: 0;
+  color: #ff6f61;
 }
 .welcome-text h2 {
-    font-size: 2rem;
-    margin: 0.5rem 0 1rem;
-    color: #ffffff;
+  font-size: 2rem;
+  margin: 0.5rem 0 1rem;
+  color: #ffffff;
 }
 .welcome-text p {
-    color: #ccc;
-    line-height: 1.6;
-    margin-bottom: 2rem;
+  color: #ccc;
+  line-height: 1.6;
+  margin-bottom: 2rem;
 }
 .welcome-buttons {
-    display: flex;
-    gap: 1rem;
+  display: flex;
+  gap: 1rem;
 }
 .btn.primary {
-    background: #ff6f61;
-    color: #fff;
-    padding: 0.75rem 1.5rem;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 500;
-    transition: background 0.2s;
+  background: #ff6f61;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.2s;
 }
 .btn.primary:hover {
-    background: #e55a4e;
+  background: #e55a4e;
 }
 .btn.secondary {
-    background: transparent;
-    border: 2px solid #ff6f61;
-    color: #fff;
-    padding: 0.75rem 1.5rem;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 500;
-    transition: background 0.2s, color 0.2s;
+  background: transparent;
+  border: 2px solid #ff6f61;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.2s, color 0.2s;
 }
 .btn.secondary:hover {
-    background: rgba(223, 106, 59, 0.411);
-    color: #ff6f61;
+  background: rgba(223, 106, 59, 0.411);
+  color: #ff6f61;
 }
 .welcome-image {
-    flex: 1 1 350px;
-    text-align: center;
+  flex: 1 1 350px;
+  text-align: center;
 }
 .welcome-image img {
-    max-width: 100%;
-    height: auto;
+  max-width: 100%;
+  height: auto;
 }
 
 /* — Login & Signup — */
 .login-page,
 .signup-page {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background: #1a1a1a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #1a1a1a;
 }
 .login-box,
 .signup-box {
-    background: #2a2a2a;
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.5);
-    width: 400px;
-    text-align: center;
+  background: #2a2a2a;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.5);
+  width: 400px;
+  text-align: center;
 }
 .login-box input,
 .signup-box input {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #444;
-    border-radius: 5px;
-    font-size: 16px;
-    background: #121212;
-    color: #e0e0e0;
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #444;
+  border-radius: 5px;
+  font-size: 16px;
+  background: #121212;
+  color: #e0e0e0;
 }
 .login-box .btn,
 .signup-box .btn {
-    width: 100%;
-    padding: 12px;
-    font-size: 18px;
-    background: #ff6f61;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+  width: 100%;
+  padding: 12px;
+  font-size: 18px;
+  background: #ff6f61;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 .login-box .btn:hover,
 .signup-box .btn:hover {
-    background: #e55a4e;
+  background: #e55a4e;
 }
 
 /* — Quiz Container — */
 .quiz-container {
-    max-width: 800px;
-    margin: 50px auto;
-    padding: 20px;
-    background: #1f2a44;
-    color: #e0e0e0;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.5);
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  background: #1f2a44;
+  color: #e0e0e0;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.5);
 }
 .quiz-container h1 {
-    font-size: 2rem;
-    text-align: center;
-    margin-bottom: 20px;
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 20px;
 }
 /* — Visually highlight the checked option — */
 .options label:has(input[type="radio"]:checked) {
-    background: #ff6f61;
-    color: #fff;
-    border-color: #ff6f61;
+  background: #ff6f61;
+  color: #fff;
+  border-color: #ff6f61;
 }
 
 
 /* One-question-per-slide styles */
 .slide {
-    display: none;
+  display: none;
 }
 .slide.active {
-    display: block;
-    padding: 30px;
-    background: #1f2a44;
-    color: #e0e0e0;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
-    margin-bottom: 20px;
+  display: block;
+  padding: 30px;
+  background: #1f2a44;
+  color: #e0e0e0;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  margin-bottom: 20px;
 }
 
 /* Options styling */
 .options label {
-    display: block;
-    margin: 10px 0;
-    padding: 12px;
-    background: #2a334e;
-    color: #e0e0e0;
-    border: 1px solid #3a3f5e;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+  display: block;
+  margin: 10px 0;
+  padding: 12px;
+  background: #2a334e;
+  color: #e0e0e0;
+  border: 1px solid #3a3f5e;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
 }
 .options label:hover {
-    background: #3a3f5e;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  background: #3a3f5e;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
 }
 .options input[type="radio"] {
-    display: none;
+  display: none;
 }
 .options input[type="radio"]:checked + label {
-    background: #ff6f61;
-    color: #fff;
-    border-color: #ff6f61;
+  background: #ff6f61;
+  color: #fff;
+  border-color: #ff6f61;
 }
 
 /* Navigation buttons */
 .nav-buttons {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
 }
 .nav-buttons button {
-    padding: 10px 20px;
-    border: none;
-    background: #ff6f61;
-    color: #fff;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background 0.2s;
+  padding: 10px 20px;
+  border: none;
+  background: #ff6f61;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.2s;
 }
 .nav-buttons button:disabled {
-    background: #555;
-    cursor: default;
+  background: #555;
+  cursor: default;
 }
 .nav-buttons button:hover:not(:disabled) {
-    background: #e55a4e;
+  background: #e55a4e;
 }
 
 /* Submit button (if used outside slider) */
 button[type="submit"] {
-    width: 100%;
-    padding: 12px;
-    background: #ff6f61;
-    color: white;
-    font-size: 1.1rem;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+  width: 100%;
+  padding: 12px;
+  background: #ff6f61;
+  color: white;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 button[type="submit"]:hover {
-    background: #e55a4e;
+  background: #e55a4e;
 }
 
 /* — Footer — */
 footer {
-    background: #333;
-    color: white;
-    text-align: center;
-    padding: 10px 0;
-    width: 100%;
+  background: #333;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  width: 100%;
 }
 
 /* — Site-footer (info columns) — */
 .site-footer {
-    background: #222;
-    color: #ccc;
-    padding: 3rem 1rem 1rem;
-    font-size: 0.95rem;
+  background: #222;
+  color: #ccc;
+  padding: 3rem 1rem 1rem;
+  font-size: 0.95rem;
 }
 .footer-container {
-    display: flex;
-    flex-wrap: wrap;
-    max-width: 1200px;
-    margin: auto;
-    gap: 2rem;
-    justify-content: space-between;
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: auto;
+  gap: 2rem;
+  justify-content: space-between;
 }
 .footer-col {
-    flex: 1 1 200px;
-    min-width: 150px;
+  flex: 1 1 200px;
+  min-width: 150px;
 }
 .footer-col h4 {
-    margin-bottom: 1rem;
-    color: #fff;
-    font-size: 1.1rem;
+  margin-bottom: 1rem;
+  color: #fff;
+  font-size: 1.1rem;
 }
 .footer-col ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 .footer-col li {
-    margin-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 .footer-col a {
-    color: #ccc;
-    text-decoration: none;
-    transition: color 0.2s;
+  color: #ccc;
+  text-decoration: none;
+  transition: color 0.2s;
 }
 .footer-col a:hover {
-    color: #fff;
+  color: #fff;
 }
 .footer-bottom {
-    text-align: center;
-    border-top: 1px solid #333;
-    margin-top: 2rem;
-    padding-top: 1rem;
-    font-size: 0.85rem;
-    color: #777;
+  text-align: center;
+  border-top: 1px solid #333;
+  margin-top: 2rem;
+  padding-top: 1rem;
+  font-size: 0.85rem;
+  color: #777;
 }
 
 /* — Overlay — */
 .overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.5);
-    z-index: 999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  z-index: 999;
 }
 .overlay.hidden {
-    display: none;
+  display: none;
 }
 
 /* — Info Banner — */
 .info-banner {
-    background: #111;
-    padding: 60px 20px;
+  background: #111;
+  padding: 60px 20px;
 }
 .info-title {
-    text-align: center;
-    color: #fff;
-    font-size: 2rem;
-    margin-bottom: 40px;
+  text-align: center;
+  color: #fff;
+  font-size: 2rem;
+  margin-bottom: 40px;
 }
 .info-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    max-width: 1200px;
-    margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: auto;
 }
 .info-card {
-    background: #1a1c29;
-    padding: 20px;
-    border-radius: 8px;
-    text-align: center;
-    transition: transform 0.2s;
+  background: #1a1c29;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  transition: transform 0.2s;
 }
 .info-card:hover {
-    transform: translateY(-5px);
+  transform: translateY(-5px);
 }
 .info-icon {
-    font-size: 2.5rem;
-    color: rgb(255, 81, 65);
-    margin-bottom: 15px;
+  font-size: 2.5rem;
+  color: rgb(255, 81, 65);
+  margin-bottom: 15px;
 }
 .info-card h3 {
-    color: #fff;
-    margin: 10px 0;
-    font-size: 1.25rem;
+  color: #fff;
+  margin: 10px 0;
+  font-size: 1.25rem;
 }
 .info-card p {
-    color: #ccc;
-    line-height: 1.4;
-    font-size: 0.95rem;
+  color: #ccc;
+  line-height: 1.4;
+  font-size: 0.95rem;
 }
 
 /* — Cookie Consent Banner — */
 .cookie-consent {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background: rgba(0,0,0,0.8);
-    color: #fff;
-    font-size: 0.95rem;
-    z-index: 1000;
-    display: flex;
-    justify-content: center;
-    padding: 1rem 0;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.8);
+  color: #fff;
+  font-size: 0.95rem;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  padding: 1rem 0;
 }
 .cookie-consent.hidden {
-    display: none;
+  display: none;
 }
 .cookie-consent-content {
-    max-width: 1000px;
-    width: 90%;
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
+  max-width: 1000px;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
 }
 .cookie-consent-content p {
-    margin: 0;
-    line-height: 1.4;
+  margin: 0;
+  line-height: 1.4;
 }
 .cookie-consent-content a {
-    color: #ffd700;
-    text-decoration: underline;
+  color: #ffd700;
+  text-decoration: underline;
 }
 .link-btn {
-    background: none;
-    border: none;
-    color: #ffd700;
-    text-decoration: underline;
-    cursor: pointer;
-    font: inherit;
-    padding: 0;
+  background: none;
+  border: none;
+  color: #ffd700;
+  text-decoration: underline;
+  cursor: pointer;
+  font: inherit;
+  padding: 0;
 }
 .cookie-buttons {
-    display: flex;
-    gap: 0.5rem;
-    justify-content: flex-end;
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-end;
 }
 .btn-primary {
-    background: #4CAF50;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    padding: 0.5rem 1rem;
-    cursor: pointer;
+  background: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
 }
 .btn-secondary {
-    background: transparent;
-    color: #fff;
-    border: 1px solid #fff;
-    border-radius: 4px;
-    padding: 0.5rem 1rem;
-    cursor: pointer;
+  background: transparent;
+  color: #fff;
+  border: 1px solid #fff;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
 }
 /* Shake animation for incorrect click */
 @keyframes shake {
-    0%, 100% { transform: translateX(0); }
-    25%      { transform: translateX(-8px); }
-    50%      { transform: translateX(8px); }
-    75%      { transform: translateX(-8px); }
+  0%, 100% { transform: translateX(0); }
+  25%      { transform: translateX(-8px); }
+  50%      { transform: translateX(8px); }
+  75%      { transform: translateX(-8px); }
 }
 .cookie-consent.shake {
-    animation: shake 0.5s;
+  animation: shake 0.5s;
 }
 
 /* — Reset Cookies Button — */
 .btn-reset {
-    position: fixed;
-    bottom: 1rem;
-    left: 1rem;
-    background: #f44336;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    padding: 0.5rem 1rem;
-    font-size: 0.9rem;
-    cursor: pointer;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-    z-index: 1001;
+  position: fixed;
+  bottom: 1rem;
+  left: 1rem;
+  background: #f44336;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  z-index: 1001;
 }
 .btn-reset:hover {
-    background: #d32f2f;
+  background: #d32f2f;
 }
 
 /* — Typewriter Animations — */
 @keyframes typing {
-    from { width: 0; }
-    to   { width: 100%; }
+  from { width: 0; }
+  to   { width: 100%; }
 }
 @keyframes blink {
-    50% { border-color: transparent; }
+  50% { border-color: transparent; }
 }
 
 /* — Score screen styling — */
 .result-container {
-    max-width: 500px;
-    margin: 80px auto;
-    padding: 30px;
-    background: #1f2a44;      
-    color: #e0e0e0;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
-    text-align: center;
+  max-width: 500px;
+  margin: 80px auto;
+  padding: 30px;
+  background: #1f2a44;      
+  color: #e0e0e0;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  text-align: center;
 }
 
 .result-container h2 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
+  font-size: 2.5rem;
+  margin-bottom: 10px;
 }
 
 .result-container .score-value {
-    font-size: 3rem;
-    font-weight: bold;
-    margin-bottom: 20px;
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 20px;
 }
 
 .result-container .btn {
-    display: inline-block;
-    margin: 0 10px;
+  display: inline-block;
+  margin: 0 10px;
 }
 
-  /* Make sure your primary/secondary buttons look good on dark bg */
+/* Make sure your primary/secondary buttons look good on dark bg */
 .btn.primary {
-    background: #ff6f61;
-    color: white;
+  background: #ff6f61;
+  color: white;
 }
 .btn.secondary {
-    background: transparent;
-    border: 2px solid #ff6f61;
-    color: white;
+  background: transparent;
+  border: 2px solid #ff6f61;
+  color: white;
 }
 .btn.primary:hover,
 .btn.secondary:hover {
-    opacity: 0.9;
+  opacity: 0.9;
 }
-  /* — Result Screen Card — */
+/* — Result Screen Card — */
 .result-container {
-    max-width: 580px;
-    margin: 100px auto;
-    padding: 40px 30px;
-    background: #1f2a44;               
-    border-radius: 12px;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.6);
-    text-align: center;
+  max-width: 580px;
+  margin: 100px auto;
+  padding: 40px 30px;
+  background: #1f2a44;               
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+  text-align: center;
 }
 
 .result-container h2 {
-    font-size: 2.2rem;
-    margin-bottom: 0.5rem;
-    color: #fff;
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+  color: #fff;
 }
 
 .result-container .score-value {
-    font-size: 4rem;
-    font-weight: bold;
-    margin: 0.5rem 0 1.5rem;
-    color: #ff6f61;              
+  font-size: 4rem;
+  font-weight: bold;
+  margin: 0.5rem 0 1.5rem;
+  color: #ff6f61;              
 }
 
-  /* Button Group */
-  .btn-group {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-  }
-  .btn-group .btn {
-    flex: 1;              
-    max-width: 150px;     
-    padding: 0.75rem 1rem;
-    text-align: center;
-  }
-  /* Primary & Secondary Buttons */
+/* Button Group */
+.btn-group {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+.btn-group .btn {
+  flex: 1;              
+  max-width: 150px;     
+  padding: 0.75rem 1rem;
+  text-align: center;
+}
+/* Primary & Secondary Buttons */
 .btn {
-    padding: 0.75rem 1.5rem;
-    border-radius: 6px;
-    font-weight: 500;
-    text-decoration: none;
-    display: inline-block;
-    transition: background 0.2s, color 0.2s;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 500;
+  text-decoration: none;
+  display: inline-block;
+  transition: background 0.2s, color 0.2s;
 }
 
-  /* Primary (solid) */
+/* Primary (solid) */
 .btn.primary {
-    background: #ff6f61;
-    color: #fff;
+  background: #ff6f61;
+  color: #fff;
 }
 .btn.primary:hover {
-    background: #e55a4e;
+  background: #e55a4e;
 }
 
-  /* Secondary (outline) */
+/* Secondary (outline) */
 .btn.secondary {
-    background: transparent;
-    border: 2px solid #ff6f61;
-    color: #ff6f61;
+  background: transparent;
+  border: 2px solid #ff6f61;
+  color: #ff6f61;
 }
 .btn.secondary:hover {
-    background: #ff6f61;
-    color: #fff;
+  background: #ff6f61;
+  color: #fff;
 }
 /* ─── Quiz Header: Timer + Progress ─── */
 .quiz-header {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
 }
 .timer {
-    font-size: 1.1rem;
-    color: #e0e0e0;
+  font-size: 1.1rem;
+  color: #e0e0e0;
 }
 .progress-text {
-    font-size: 0.95rem;
-    color: #ccc;
+  font-size: 0.95rem;
+  color: #ccc;
 }
 .progress {
-    width: 100%;
-    height: 8px;
-    background: #333;
-    border-radius: 4px;
-    overflow: hidden;
+  width: 100%;
+  height: 8px;
+  background: #333;
+  border-radius: 4px;
+  overflow: hidden;
 }
 #progress-bar {
-    width: 0%;
-    height: 100%;
-    background: #ff6f61;
-    transition: width 0.3s ease;
+  width: 0%;
+  height: 100%;
+  background: #ff6f61;
+  transition: width 0.3s ease;
 }
 /* — Leaderboard Styles — */
 .leaderboard-container {
-    max-width: 600px;
-    margin: 60px auto;
-    padding: 30px;
-    background: #1f2a44;
-    color: #e0e0e0;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
-    text-align: center;
-  }
-  
-  .leaderboard-container h1 {
-    margin-bottom: 20px;
-  }
-  
-  /* Make the table fixed-layout and set its base styling */
-  .leaderboard-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
-    table-layout: fixed;    /* force equal column widths */
-  }
-  
-  /* Padding on every cell */
-  .leaderboard-table th,
-  .leaderboard-table td {
-    padding: 12px 8px;
-  }
-  
-  /* Header row background & text color */
-  .leaderboard-table thead {
-    background: #2a334e;
-  }
-  
-  .leaderboard-table th {
-    color: #ff6f61;
-    text-align: left;
-  }
-  
-  /* Row borders and highlighted “you” row */
-  .leaderboard-table tbody tr {
-    border-bottom: 1px solid #343a55;
-  }
-  
-  .leaderboard-table tbody tr.you {
-    background: rgba(255,111,97,0.1);
-  }
-  
-  /* Body cell text color */
-  .leaderboard-table td {
-    color: #e0e0e0;
-  }
-  
+  max-width: 600px;
+  margin: 60px auto;
+  padding: 30px;
+  background: #1f2a44;
+  color: #e0e0e0;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  text-align: center;
+}
+
+.leaderboard-container h1 {
+  margin-bottom: 20px;
+}
+
+/* Make the table fixed-layout and set its base styling */
+.leaderboard-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  table-layout: fixed;    /* force equal column widths */
+}
+
+/* Padding on every cell */
+.leaderboard-table th,
+.leaderboard-table td {
+  padding: 12px 8px;
+}
+
+/* Header row background & text color */
+.leaderboard-table thead {
+  background: #2a334e;
+}
+
+.leaderboard-table th {
+  color: #ff6f61;
+  text-align: left;
+}
+
+/* Row borders and highlighted “you” row */
+.leaderboard-table tbody tr {
+  border-bottom: 1px solid #343a55;
+}
+
+.leaderboard-table tbody tr.you {
+  background: rgba(255,111,97,0.1);
+}
+
+/* Body cell text color */
+.leaderboard-table td {
+  color: #e0e0e0;
+}
+
 /* ─── Leaderboard Column Alignment (4 columns) ─── */
 .leaderboard-table {
-    table-layout: fixed;  /* fix column widths */
-  }
-  
-  /* Rank: narrow, centered */
-  .leaderboard-table th:nth-child(1),
-  .leaderboard-table td:nth-child(1) {
-    width: 15%;
-    text-align: center;
-  }
-  
-  /* Username: takes up the bulk, left-aligned */
-  .leaderboard-table th:nth-child(2),
-  .leaderboard-table td:nth-child(2) {
-    width: 45%;
-    text-align: left;
-  }
-  
-  /* Score: medium, centered */
-  .leaderboard-table th:nth-child(3),
-  .leaderboard-table td:nth-child(3) {
-    width: 20%;
-    text-align: center;
-  }
-  
-  /* Percent: medium, centered */
-  .leaderboard-table th:nth-child(4),
-  .leaderboard-table td:nth-child(4) {
-    width: 20%;
-    text-align: center;
-  }
-  
-  
-  /* Button under the table */
-  .leaderboard-container .btn {
-    display: inline-block;
-    margin-top: 1rem;
-    padding: 0.75rem 1.5rem;
-    font-weight: 500;
-    border-radius: 6px;
-    text-decoration: none;
-  }
-  
-  .btn.primary {
-    background: #ff6f61;
-    color: #fff;
-  }
-  
-  .btn.primary:hover {
-    background: #e55a4e;
-  }
+  table-layout: fixed;  /* fix column widths */
+}
+
+/* Rank: narrow, centered */
+.leaderboard-table th:nth-child(1),
+.leaderboard-table td:nth-child(1) {
+  width: 15%;
+  text-align: center;
+}
+
+/* Username: takes up the bulk, left-aligned */
+.leaderboard-table th:nth-child(2),
+.leaderboard-table td:nth-child(2) {
+  width: 45%;
+  text-align: left;
+}
+
+/* Score: medium, centered */
+.leaderboard-table th:nth-child(3),
+.leaderboard-table td:nth-child(3) {
+  width: 20%;
+  text-align: center;
+}
+
+/* Percent: medium, centered */
+.leaderboard-table th:nth-child(4),
+.leaderboard-table td:nth-child(4) {
+  width: 20%;
+  text-align: center;
+}
+
+
+/* Button under the table */
+.leaderboard-container .btn {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  font-weight: 500;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+.btn.primary {
+  background: #ff6f61;
+  color: #fff;
+}
+
+.btn.primary:hover {
+  background: #e55a4e;
+}
 
 /* — Review Answers Styles — */
 .review-container {
-    max-width: 800px;
-    margin: 40px auto;
-    padding: 20px;
-  }
-  .review-container h3 {
-    color: #ff6f61;
-    margin-bottom: 16px;
-    text-align: center;
-  }
-  .review-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  .review-list li {
-    padding: 16px;
-    border-radius: 8px;
-    margin-bottom: 12px;
-  }
-  .review-list li.correct {
-    background: #1e3d00;   /* dark green */
-    color: #b6ff00;        /* light green text */
-  }
-  .review-list li.wrong {
-    background: #3d0000;   /* dark red */
-    color: #ffb6b6;        /* light red text */
-  }
-  .review-list li p {
-    margin: 4px 0;
-  }
-/* ─── Learn Page Layout ─── */
-.learn-main {
-    display: grid;
-    grid-template-columns: 200px 1fr;
-    gap: 2rem;
-    max-width: 1200px;
-    margin: 40px auto;
-    padding: 0 20px;
-  }
-  
-  /* ─── Table of Contents ─── */
-  .toc {
-    position: sticky;
-    top: 100px;
-    background: #1f2a44;
-    padding: 1rem;
-    border-radius: 8px;
-  }
-  .toc h4 {
-    color: #ff6f61;
-    margin-bottom: 0.75rem;
-  }
-  .toc ul {
-    list-style: none;
-    padding: 0;
-  }
-  .toc li + li {
-    margin-top: 0.5rem;
-  }
-  .toc a {
-    color: #e0e0e0;
-    text-decoration: none;
-  }
-  .toc a:hover {
-    text-decoration: underline;
-  }
-  
-  /* ─── Accordion ─── */
-  .accordion-toggle {
-    width: 100%;
-    background: #2a334e;
-    color: #fff;
-    padding: 12px;
-    border: none;
-    text-align: left;
-    font-size: 1rem;
-    cursor: pointer;
-    border-radius: 4px;
-    margin-bottom: 4px;
-  }
-  .accordion-toggle:after {
-    content: "▶";
-    float: right;
-    transition: transform 0.2s;
-  }
-  .accordion-toggle.active:after {
-    transform: rotate(90deg);
-  }
-  .accordion-panel {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease;
-    background: #1a1c29;
-    padding: 0 12px;
-    border-radius: 0 0 4px 4px;
-    margin-bottom: 1rem;
-  }
-  .accordion-panel.open {
-    padding: 12px;
-    max-height: 400px; /* enough for most content */
-  }
-  
-  /* ─── Cookie Simulator ─── */
-  .cookie-sim {
-    background: #2a334e;
-    padding: 1rem;
-    border-radius: 6px;
-    margin: 1.5rem 0;
-  }
-  .cookie-sim h4 {
-    margin-top: 0;
-    color: #ff6f61;
-  }
-  .cookie-sim input {
-    margin-right: 0.5rem;
-    padding: 6px;
-    border-radius: 4px;
-    border: 1px solid #444;
-    background: #121212;
-    color: #e0e0e0;
-  }
-  .cookie-sim button {
-    margin-right: 0.5rem;
-    padding: 6px 12px;
-    cursor: pointer;
-  }
-  .cookie-sim pre {
-    background: #111;
-    padding: 0.5rem;
-    border-radius: 4px;
-    margin-top: 0.5rem;
-    color: #b6ff00;
-  }
-  
-  /* ─── Glossary ─── */
-  dl {
-    margin: 1rem 0;
-  }
-  dt {
-    font-weight: bold;
-    margin-top: 1rem;
-    color: #ff6f61;
-  }
-  dd {
-    margin: 0 0 0.5rem 1rem;
-    color: #e0e0e0;
-  }
-  
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+}
+.review-container h3 {
+  color: #ff6f61;
+  margin-bottom: 16px;
+  text-align: center;
+}
+.review-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.review-list li {
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+.review-list li.correct {
+  background: #1e3d00;   /* dark green */
+  color: #b6ff00;        /* light green text */
+}
+.review-list li.wrong {
+  background: #3d0000;   /* dark red */
+  color: #ffb6b6;        /* light red text */
+}
+.review-list li p {
+  margin: 4px 0;
+}
+
+/* ─── Disabled Quiz Button ─── */
+.btn.disabled {
+opacity: 0.6;
+pointer-events: none;
+}
+
+/* ─── Learn Progress Bar ─── */
+.learn-progress {
+width: 100%;
+max-width: 1200px;
+margin: 20px auto;
+padding: 0 20px;
+box-sizing: border-box;
+}
+#progress-bar-container {
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+gap: 2rem;
+}
+.progress-step {
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+background: #2a334e;
+color: #ccc;
+padding: 1rem;
+border-radius: 8px;
+position: relative;
+transition: background 0.3s, color 0.3s;
+}
+.progress-step .number {
+font-size: 1.4rem;
+font-weight: bold;
+}
+.progress-step .label {
+font-size: 1rem;
+margin-top: 0.25rem;
+}
+.progress-step.completed {
+background: #ff6f61;
+color: #fff;
+}
+.progress-step.completed::after {
+content: "✔";
+position: absolute;
+top: 8px;
+right: 8px;
+font-size: 1.2rem;
+}
+
+/* ─── Quiz Button Wrapper ─── */
+.learning-end-progress {
+width: 100%;
+max-width: 1200px;
+margin: 20px auto;
+padding: 0 20px;
+box-sizing: border-box;
+text-align: center;
+}
+.learning-end-progress .btn {
+margin-top: 1rem;
+}
+
+/* ─── Full-Width Lesson Container ─── */
+.learn-details {
+width: 100%;
+max-width: 1200px;
+margin: 20px auto;
+padding: 0 20px;
+box-sizing: border-box;
+}
+
+/* ─── Accordion Styles ─── */
+.accordion { margin-bottom: 1rem; }
+.accordion-toggle {
+width: 100%; background: #2a334e; color: #fff;
+padding: 12px 16px; text-align: left; border: none;
+border-radius: 4px; cursor: pointer; position: relative;
+}
+.accordion-toggle::after {
+content: "\25B6"; position: absolute; right: 16px;
+top: 50%; transform: translateY(-50%); transition: transform 0.2s;
+}
+.accordion-toggle.active::after {
+transform: translateY(-50%) rotate(90deg);
+}
+.accordion-panel {
+max-height: 0; overflow: hidden;
+background: #1a1c29; transition: max-height 0.3s ease, padding 0.3s;
+padding: 0 16px; border-radius: 0 0 4px 4px; box-sizing: border-box;
+}
+.accordion-panel.open {
+padding: 16px; max-height: 1000px;
+}
+
+/* ─── Video Embed ─── */
+.video-container {
+position: relative; width: 100%; padding-bottom: 56.25%; margin-bottom: 1rem;
+}
+.video-container iframe {
+position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;
+}
+/* ─── Quiz Reminder Text ─── */
+.quiz-note {
+text-align: center;
+color: #ccc;
+margin-top: 0.5rem;
+font-size: 0.95rem;
+}
+
+/* ─── “5. Try It Yourself” Heading ─── */
+.learn-details #simulator h4 {
+color: #ff6f61;
+font-size: 1.3rem;
+margin: 2rem 0 1rem;
+}
+
+/* Simulator section explanation */
+#simulator {
+margin: 2rem 0;
+}
+#simulator p {
+color: #e0e0e0;
+line-height: 1.4;
+}
+#reset-consent-btn {
+background: #ff6f61;
+color: #fff;
+border: none;
+padding: 0.75rem 1.5rem;
+border-radius: 6px;
+cursor: pointer;
+transition: background 0.2s;
+}
+#reset-consent-btn:hover {
+background: #e55a4e;
+}
+#cookie-output {
+margin-top: 1rem;
+background: #111;
+padding: 0.75rem;
+border-radius: 4px;
+color: #b6ff00;
+}
+.sim-explain {
+margin-top: 1rem;
+color: #ccc;
+}
+.sim-explain ul {
+margin: 0.5rem 0 0 1.5rem;
+}
+.sim-explain li {
+margin-bottom: 0.5rem;
+}
+
+
+/* ─── “6. Glossary” Heading ─── */
+.learn-details #glossary h3 {
+color: #ff6f61;
+font-size: 1.3rem;
+margin: 2rem 0 1rem;
+}
+
+/* ─── Glossary Definition List ─── */
+.learn-details #glossary dl {
+margin: 0.5rem 0 2rem 1.5rem;
+}
+.learn-details #glossary dt {
+font-weight: bold;
+color: #ff6f61;
+margin-top: 1rem;
+}
+.learn-details #glossary dd {
+margin: 0 0 0.5rem 1.5rem;
+color: #e0e0e0;
+line-height: 1.4;
+}
+/* Force the accordion panel to use our flex row layout */
+.accordion-panel.open {
+  /* remove built-in padding so our inner .learn-flex controls layout */
+  padding: 0;  
+}
+
+/* Wrap direct children of the panel in a flex row */
+.accordion-panel .learn-flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: flex-start;
+  padding: 16px; /* match your previous padding */
+}
+
+/* Ensure text stays left, video right */
+.accordion-panel .learn-text {
+  flex: 1 1 300px;
+}
+
+.accordion-panel .video-container {
+  flex: 1 1 500px;
+  /* remove extra margin on desktop */
+  margin-bottom: 0;
+}
+/* Utility to hide elements */
+.hidden {
+  display: none !important;
+}
+.feedback-section {
+  background-color: #0f101a;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.feedback-title {
+  font-size: 2.8rem;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.feedback-description {
+  font-size: 1.2rem;
+  color: #cccccc;
+  margin-bottom: 30px;
+}
+
+.feedback-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.form-card {
+  background-color: #1a1a1a;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+  max-width: 600px;
+  width: 100%;
+}
+
+
+.feedback-textarea {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 15px;
+  font-size: 1rem;
+  border: 1px solid #333;
+  border-radius: 8px;
+  background-color: #111;
+  color: #eee;
+  margin-bottom: 20px;
+  resize: vertical;
+}
+
+
+.feedback-textarea::placeholder {
+  color: #666;
+}
+
+.feedback-btn {
+  background-color: #ff5722;
+  border: none;
+  padding: 12px 25px;
+  font-size: 1rem;
+  color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.feedback-btn:hover {
+  background-color: #e64a19;
+}

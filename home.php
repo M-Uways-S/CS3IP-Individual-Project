@@ -116,6 +116,19 @@ session_start();
         </div>
     </section>
 
+        <section class="feedback-section">
+            <h2 class="feedback-title">We Value Your Feedback</h2>
+            <p class="feedback-description">Help us improve! Please share your thoughts below.</p>
+
+            <form action="submit_feedback.php" method="POST" class="feedback-form">
+                <div class="form-card">
+                    <textarea name="feedback_text" class="feedback-textarea" rows="6" placeholder="Write your feedback here..." required></textarea>
+                    <button type="submit" class="btn primary feedback-btn">Submit Feedback</button>
+                </div>
+            </form>
+        </section>
+
+
     <footer class="site-footer">
         <div class="footer-container">
             <div class="footer-col">

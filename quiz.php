@@ -202,19 +202,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           </p>
           <div class="options">
             <input type="radio" id="q<?= $q['id'] ?>A"
-                   name="answers[<?= $q['id'] ?>]" value="A">
+                  name="answers[<?= $q['id'] ?>]" value="A">
             <label for="q<?= $q['id'] ?>A"><?= htmlspecialchars($q['option_a']) ?></label>
 
             <input type="radio" id="q<?= $q['id'] ?>B"
-                   name="answers[<?= $q['id'] ?>]" value="B">
+                  name="answers[<?= $q['id'] ?>]" value="B">
             <label for="q<?= $q['id'] ?>B"><?= htmlspecialchars($q['option_b']) ?></label>
 
             <input type="radio" id="q<?= $q['id'] ?>C"
-                   name="answers[<?= $q['id'] ?>]" value="C">
+                  name="answers[<?= $q['id'] ?>]" value="C">
             <label for="q<?= $q['id'] ?>C"><?= htmlspecialchars($q['option_c']) ?></label>
 
             <input type="radio" id="q<?= $q['id'] ?>D"
-                   name="answers[<?= $q['id'] ?>]" value="D">
+                  name="answers[<?= $q['id'] ?>]" value="D">
             <label for="q<?= $q['id'] ?>D"><?= htmlspecialchars($q['option_d']) ?></label>
           </div>
         </div>
