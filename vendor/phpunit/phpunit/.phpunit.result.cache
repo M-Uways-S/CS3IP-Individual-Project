@@ -1,1 +1,1 @@
-{"version":1,"defects":{"SignupTest::testSignupInsertsUserWithHashedPassword":8},"times":[]}
+{"version":1,"defects":{"SignupTest::testSignupInsertsUserWithHashedPassword":8,"StoreScoreTest::testScoreStoredCorrectly":8,"LeaderboardTest::testLeaderboardOrder":7},"times":{"StoreScoreTest::testScoreStoredCorrectly":0.013,"StoreScoreTest::testScoreStoredInUsersTable":0.006,"FeedbackTest::testAnonymousFeedbackStoredCorrectly":0.008,"RetakeQuizTest::testRetakeScoreUpdatesCorrectly":0.005,"LeaderboardTest::testLeaderboardOrder":0.004}}
