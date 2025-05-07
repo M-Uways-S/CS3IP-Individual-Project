@@ -98,7 +98,7 @@ $conn->close();
         <?php endif; ?>
       </tbody>
     </table>
-    <a href="quiz.php" class="btn primary">Take Quiz</a>
+    
   </div>
 
   <footer>
