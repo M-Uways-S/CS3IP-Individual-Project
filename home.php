@@ -28,7 +28,7 @@ session_start();
             <p>
                 We use cookies to personalise content, analyse traffic, and improve your experience.
                 By clicking “Accept All” you agree to our use of cookies.
-                You can also <a href="/cookie-policy.php" target="_blank">read our policy</a> or
+                You can also <a href="#" id="read-policy-link">read our policy</a> or
                 <button id="cookie-manage-btn" class="link-btn">Manage preferences</button>.
             </p>
             <div class="cookie-buttons">
@@ -165,6 +165,11 @@ session_start();
             <p>&copy; 2025 Cookie Shield. All rights reserved.</p>
         </div>
     </footer>
+    
+    <div id="info-popup" class="info-popup">
+    <p id="popup-message"></p>
+    <button id="close-popup-btn">Close</button>
+    </div>
     
     <script src="script.js"></script>
 </body>

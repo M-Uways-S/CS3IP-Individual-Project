@@ -222,5 +222,30 @@ document.addEventListener("DOMContentLoaded", () => {
         window.location.href = "learn.php";
       });
     }
+
+const policyLink = document.getElementById('read-policy-link');
+const manageBtn  = document.getElementById('cookie-manage-btn');
+const popup      = document.getElementById('info-popup');
+const msg        = document.getElementById('popup-message');
+const closeBtn   = document.getElementById('close-popup-btn');
+
+if (policyLink && manageBtn && popup && msg && closeBtn) {
+  policyLink.addEventListener('click', e => {
+    e.preventDefault();
+    msg.textContent = "Here’s where the privacy policy would be shown.";
+    popup.classList.add('show');
+  });
+
+  manageBtn.addEventListener('click', e => {
+    e.preventDefault();
+    msg.textContent = "Here’s where preference settings would be configured.";
+    popup.classList.add('show');
+  });
+
+  closeBtn.addEventListener('click', () => {
+    popup.classList.remove('show');
+  });
+}
+
   });
   

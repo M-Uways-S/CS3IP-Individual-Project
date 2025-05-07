@@ -994,3 +994,28 @@ line-height: 1.4;
 .feedback-btn:hover {
   background-color: #e64a19;
 }
+.info-popup {
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1f2a44;
+  color: #fff;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  z-index: 1002;
+  display: none;
+}
+.info-popup.show {
+  display: block;
+}
+.info-popup button {
+  margin-top: 0.5rem;
+  padding: 0.4rem 0.8rem;
+  background: #ff6f61;
+  border: none;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+}
